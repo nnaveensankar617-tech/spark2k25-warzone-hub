@@ -30,6 +30,12 @@ const Navbar = () => {
       setIsOpen(false);
       return;
     }
+
+    if (id === "sponsors-page") {
+      navigate("/sponsors");
+      setIsOpen(false);
+      return;
+    }
     
     if (location.pathname !== "/") {
       navigate("/");
@@ -51,6 +57,7 @@ const Navbar = () => {
     { name: "Gallery", id: "gallery-page" },
     { name: "Schedule", id: "schedule" },
     { name: "Contact", id: "contact" },
+    { name: "Sponsors", id: "sponsors-page" },
   ];
 
   return (
