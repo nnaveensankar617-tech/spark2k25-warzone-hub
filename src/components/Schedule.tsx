@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Calendar, Clock, MapPin, Trophy } from "lucide-react";
+import { Calendar, Clock, MapPin, Users } from "lucide-react";
 
 const Schedule = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -9,7 +9,6 @@ const Schedule = () => {
     seconds: 0,
   });
 
-  // Event date - adjust as needed
   const eventDate = new Date("2025-03-15T09:00:00");
 
   useEffect(() => {
@@ -66,48 +65,47 @@ const Schedule = () => {
   ];
 
   return (
-    <section id="schedule" className="py-24 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
+    <section id="schedule" className="py-20 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-card/20" />
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-16 animate-slide-up">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 border border-secondary/30 mb-4">
-            <Calendar className="w-4 h-4 text-secondary" />
-            <span className="text-sm font-orbitron font-semibold text-secondary uppercase tracking-wider">
+        {/* Hero Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-card border border-primary/20 mb-6">
+            <Calendar className="w-5 h-5 text-primary" />
+            <span className="text-sm font-orbitron font-semibold text-primary uppercase tracking-widest">
               Event Timeline
             </span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-orbitron font-bold mb-6">
-            Battle <span className="text-primary text-glow-orange">Schedule</span>
+          <h2 className="text-5xl md:text-7xl font-orbitron font-bold mb-4">
+            BATTLE <span className="text-primary">SCHEDULE</span>
           </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-exo">
+            Three days of intense competition, innovation, and celebration
+          </p>
         </div>
 
-        {/* Countdown Timer */}
-        <div className="max-w-4xl mx-auto mb-16 animate-slide-up" style={{ animationDelay: "0.1s" }}>
-          <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 text-center">
-            <h3 className="text-2xl font-orbitron font-bold mb-8 text-foreground">
-              Event Starts In
+        {/* Countdown Section */}
+        <div className="max-w-5xl mx-auto mb-20">
+          <div className="bg-card border border-border rounded-xl p-8 md:p-12">
+            <h3 className="text-2xl md:text-3xl font-orbitron font-bold mb-10 text-center">
+              EVENT COUNTDOWN
             </h3>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { value: timeLeft.days, label: "Days" },
-                { value: timeLeft.hours, label: "Hours" },
-                { value: timeLeft.minutes, label: "Minutes" },
-                { value: timeLeft.seconds, label: "Seconds" },
+                { value: timeLeft.days, label: "DAYS" },
+                { value: timeLeft.hours, label: "HOURS" },
+                { value: timeLeft.minutes, label: "MINUTES" },
+                { value: timeLeft.seconds, label: "SECONDS" },
               ].map((item, index) => (
-                <div
-                  key={index}
-                  className="relative group"
-                >
-                  <div className="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl p-6 border border-border group-hover:border-primary/50 transition-all duration-300">
-                    <div className="text-4xl md:text-6xl font-orbitron font-bold text-primary mb-2">
+                <div key={index} className="text-center">
+                  <div className="bg-background border-2 border-primary/30 rounded-lg p-6 mb-3">
+                    <div className="text-5xl md:text-6xl font-orbitron font-bold text-primary">
                       {String(item.value).padStart(2, "0")}
                     </div>
-                    <div className="text-sm text-muted-foreground uppercase tracking-wider font-exo">
-                      {item.label}
-                    </div>
+                  </div>
+                  <div className="text-sm text-muted-foreground font-orbitron tracking-wider">
+                    {item.label}
                   </div>
                 </div>
               ))}
@@ -115,45 +113,43 @@ const Schedule = () => {
           </div>
         </div>
 
-        {/* Schedule Timeline */}
-        <div className="max-w-6xl mx-auto space-y-12">
+        {/* Schedule Days */}
+        <div className="max-w-6xl mx-auto space-y-16">
           {scheduleData.map((day, dayIndex) => (
-            <div
-              key={dayIndex}
-              className="animate-slide-up"
-              style={{ animationDelay: `${0.2 + dayIndex * 0.1}s` }}
-            >
+            <div key={dayIndex}>
               {/* Day Header */}
-              <div className="flex items-center gap-4 mb-6">
-                <div className="flex-shrink-0 w-20 h-20 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center">
-                  <span className="text-2xl font-orbitron font-bold text-primary">
+              <div className="flex items-center gap-6 mb-8">
+                <div className="w-24 h-24 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
+                  <span className="text-4xl font-orbitron font-bold text-white">
                     {day.day.split(" ")[1]}
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-orbitron font-bold text-foreground">
+                  <h3 className="text-3xl font-orbitron font-bold mb-1">
                     {day.day}
                   </h3>
-                  <p className="text-muted-foreground font-exo">{day.date}</p>
+                  <p className="text-muted-foreground text-lg font-exo">{day.date}</p>
                 </div>
               </div>
 
-              {/* Events List */}
-              <div className="space-y-4 ml-0 md:ml-24">
+              {/* Events Grid */}
+              <div className="grid md:grid-cols-2 gap-4">
                 {day.events.map((event, eventIndex) => (
                   <div
                     key={eventIndex}
-                    className="group relative p-6 rounded-lg bg-card/30 border border-border hover:border-primary/50 hover:bg-card/50 transition-all duration-300"
+                    className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-colors"
                   >
-                    <div className="flex flex-col md:flex-row md:items-center gap-4">
-                      <div className="flex items-center gap-3 text-primary">
-                        <Clock className="w-5 h-5" />
-                        <span className="font-orbitron font-semibold text-lg">
-                          {event.time}
-                        </span>
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0">
+                        <div className="w-12 h-12 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
+                          <Clock className="w-6 h-6 text-primary" />
+                        </div>
                       </div>
                       <div className="flex-1">
-                        <h4 className="text-lg font-orbitron font-bold text-foreground mb-1">
+                        <div className="text-primary font-orbitron font-semibold mb-2">
+                          {event.time}
+                        </div>
+                        <h4 className="text-lg font-orbitron font-bold mb-2">
                           {event.title}
                         </h4>
                         <div className="flex items-center gap-2 text-muted-foreground text-sm">
@@ -162,9 +158,6 @@ const Schedule = () => {
                         </div>
                       </div>
                     </div>
-                    
-                    {/* Hover Glow */}
-                    <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-gradient-to-r from-primary/5 via-transparent to-secondary/5" />
                   </div>
                 ))}
               </div>
@@ -172,12 +165,12 @@ const Schedule = () => {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-16 animate-slide-up" style={{ animationDelay: "0.5s" }}>
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-card/50 backdrop-blur-sm border border-border">
-            <Trophy className="w-5 h-5 text-secondary" />
+        {/* Footer Note */}
+        <div className="text-center mt-16">
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-card border border-border">
+            <Users className="w-5 h-5 text-secondary" />
             <span className="text-sm font-exo text-muted-foreground">
-              Schedule subject to change. Stay tuned for updates.
+              Schedule subject to change • Stay updated
             </span>
           </div>
         </div>
