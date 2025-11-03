@@ -1,5 +1,11 @@
 import { useState, useEffect } from "react";
 import { Calendar, Clock, MapPin, Users } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Schedule = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -114,55 +120,63 @@ const Schedule = () => {
         </div>
 
         {/* Schedule Days */}
-        <div className="max-w-6xl mx-auto space-y-16">
-          {scheduleData.map((day, dayIndex) => (
-            <div key={dayIndex}>
-              {/* Day Header */}
-              <div className="flex items-center gap-6 mb-8">
-                <div className="w-24 h-24 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
-                  <span className="text-4xl font-orbitron font-bold text-white">
-                    {day.day.split(" ")[1]}
-                  </span>
-                </div>
-                <div>
-                  <h3 className="text-3xl font-orbitron font-bold mb-1">
-                    {day.day}
-                  </h3>
-                  <p className="text-muted-foreground text-lg font-exo">{day.date}</p>
-                </div>
-              </div>
-
-              {/* Events Grid */}
-              <div className="grid md:grid-cols-2 gap-4">
-                {day.events.map((event, eventIndex) => (
-                  <div
-                    key={eventIndex}
-                    className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-colors"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-12 h-12 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
-                          <Clock className="w-6 h-6 text-primary" />
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <div className="text-primary font-orbitron font-semibold mb-2">
-                          {event.time}
-                        </div>
-                        <h4 className="text-lg font-orbitron font-bold mb-2">
-                          {event.title}
-                        </h4>
-                        <div className="flex items-center gap-2 text-muted-foreground text-sm">
-                          <MapPin className="w-4 h-4" />
-                          <span className="font-exo">{event.location}</span>
-                        </div>
-                      </div>
+        <div className="max-w-6xl mx-auto">
+          <Accordion type="single" collapsible className="space-y-4">
+            {scheduleData.map((day, dayIndex) => (
+              <AccordionItem
+                key={dayIndex}
+                value={`day-${dayIndex}`}
+                className="border border-border rounded-lg overflow-hidden bg-card"
+              >
+                <AccordionTrigger className="hover:no-underline px-6 py-4">
+                  <div className="flex items-center gap-6 w-full">
+                    <div className="w-20 h-20 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
+                      <span className="text-3xl font-orbitron font-bold text-white">
+                        {day.day.split(" ")[1]}
+                      </span>
+                    </div>
+                    <div className="text-left">
+                      <h3 className="text-2xl font-orbitron font-bold mb-1">
+                        {day.day}
+                      </h3>
+                      <p className="text-muted-foreground text-base font-exo">{day.date}</p>
                     </div>
                   </div>
-                ))}
-              </div>
-            </div>
-          ))}
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-6">
+                  {/* Events Grid */}
+                  <div className="grid md:grid-cols-2 gap-4 mt-4">
+                    {day.events.map((event, eventIndex) => (
+                      <div
+                        key={eventIndex}
+                        className="bg-background border border-border rounded-lg p-6 hover:border-primary/50 transition-colors"
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className="flex-shrink-0">
+                            <div className="w-12 h-12 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
+                              <Clock className="w-6 h-6 text-primary" />
+                            </div>
+                          </div>
+                          <div className="flex-1">
+                            <div className="text-primary font-orbitron font-semibold mb-2">
+                              {event.time}
+                            </div>
+                            <h4 className="text-lg font-orbitron font-bold mb-2">
+                              {event.title}
+                            </h4>
+                            <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                              <MapPin className="w-4 h-4" />
+                              <span className="font-exo">{event.location}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
 
         {/* Footer Note */}
