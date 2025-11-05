@@ -21,7 +21,7 @@ interface Event {
   poster: string;
   prizes: string;
   rules: string[];
-  type: "Individual" | "Team";
+  type: "Individual" | "Team" | "Individual / Team" | "Individual/ Duo / Team ";
 }
 
 const EventsPage = () => {
@@ -68,20 +68,20 @@ const EventsPage = () => {
     },
     {
       id: "3",
-      name: "Battle of Bands",
+      name: "MUSICON",
       code: "CUL001",
       category: "Cultural",
-      date: "March 17, 2025",
-      entryFee: "₹500",
+      date: "March 16, 2026",
+      entryFee: "₹150",
       poster: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800",
       prizes: "1st: ₹20,000 | 2nd: ₹10,000 | 3rd: ₹5,000",
       rules: [
-        "Band of 3-6 members",
-        "15-minute performance",
-        "Original or cover songs",
-        "Instruments provided or bring your own",
+            "Solo, duet, and group entries are allowed.",
+            "Categories include Vocal, Instrumental, and Fusion performances",
+            "Solo: 1 participant, Duet: 2 participants, Group: up to 6 members",
+            "Solo/Duet time: 2–3 minutes, Group time: 4–5 minutes.",
       ],
-      type: "Team",
+      type: "Individual/ Duo / Team ",
     },
     {
       id: "4",
@@ -119,20 +119,37 @@ const EventsPage = () => {
     },
     {
       id: "6",
-      name: "Dance Floor",
+      name: "Dance off",
       code: "CUL002",
       category: "Cultural",
-      date: "March 20, 2025",
-      entryFee: "₹300",
+      date: "March 16, 2026",
+      entryFee: "₹200",
       poster: "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=800",
       prizes: "1st: ₹12,000 | 2nd: ₹6,000 | 3rd: ₹3,000",
       rules: [
-        "Solo or group (max 8)",
-        "Any dance style",
-        "5-8 minute performance",
-        "Props allowed",
+        " Open to all college students with valid ID cards.",
+        " Solo and group performances are allowed.",
+        " Group teams can have 3 to 12 members.",
+        " Solo time limit: 2–3 minutes; Group: 4–5 minutes.",
       ],
-      type: "Team",
+      type: "Individual / Team",
+    },
+    {
+      id: "7",
+      name: "Art Gallery",
+      code: "CUL002",
+      category: "Cultural",
+      date: "March 16, 2026",
+      entryFee: "₹100",
+      poster: "https://tse1.mm.bing.net/th/id/OIP.2v8w2PBuI1n5OYMT9i8hGAHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
+      prizes: "1st: ₹12,000 | 2nd: ₹6,000 | 3rd: ₹3,000",
+      rules: [
+       " Individual participation only.",
+       "Theme: “Colours of Imagination”",
+       " Bring your own materials and supplies.",
+       " Each participant can submit only one artwork.",
+      ],
+      type: "Individual",
     },
   ];
 
