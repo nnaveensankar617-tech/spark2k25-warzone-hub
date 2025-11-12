@@ -26,63 +26,73 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background" />
       </div>
 
-      {/* Animated Particles */}
-      {/* Animated Particles */}
-<div className="absolute inset-0 z-0 overflow-hidden">
-  {[...Array(40)].map((_, i) => (
-    <div
-      key={i}
-      className="absolute w-1.5 h-1.5 bg-primary rounded-full animate-spark-trail"
-      style={{
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        animationDelay: `${Math.random() * 0}s`, // shorter delay = more frequent
-        animationDuration: `${1 + Math.random() * 1.5}s`, // faster movement
-        opacity: Math.random() * 0.8 + 0.2, // natural flicker
-        transform: `scale(${Math.random() * 1.2 + 0.4})`, // varied spark sizes
-      }}
-    />
-  ))}
-</div>
+      {/* Animated Particles - Enhanced */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {[...Array(60)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full animate-spark-trail"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              width: `${2 + Math.random() * 4}px`,
+              height: `${2 + Math.random() * 4}px`,
+              backgroundColor: i % 3 === 0 ? 'hsl(var(--primary))' : i % 3 === 1 ? 'hsl(var(--secondary))' : 'hsl(var(--neon-blue))',
+              animationDelay: `${Math.random() * 2}s`,
+              animationDuration: `${1 + Math.random() * 2}s`,
+              opacity: Math.random() * 0.7 + 0.3,
+              transform: `scale(${Math.random() * 1.5 + 0.3}) rotate(${Math.random() * 360}deg)`,
+              filter: `blur(${Math.random() * 1}px)`,
+              boxShadow: i % 2 === 0 
+                ? '0 0 10px hsl(var(--primary) / 0.8)' 
+                : '0 0 10px hsl(var(--secondary) / 0.8)',
+            }}
+          />
+        ))}
+      </div>
 
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
-        <div className="animate-slide-up">
+        <div>
           {/* Event Badge */}
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-card/50 backdrop-blur-sm border border-primary/30 mb-8 animate-glow-pulse">
-            <Zap className="w-5 h-5 text-primary" />
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-card/50 backdrop-blur-sm border border-primary/30 mb-8 animate-scale-bounce" style={{ animationDelay: "0.2s", animationFillMode: "both" }}>
+            <Zap className="w-5 h-5 text-primary animate-pulse-glow" />
             <span className="text-sm font-orbitron font-semibold text-foreground uppercase tracking-wider">
               SV College, Tirupati
             </span>
           </div>
 
           {/* Main Title */}
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-orbitron font-black mb-6 animate-float">
-            <span className="text-glow-cyan">SPARK</span>
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-orbitron font-black mb-6">
+            <span className="inline-block text-glow-cyan animate-fade-in-up" style={{ animationDelay: "0.4s", animationFillMode: "both" }}>
+              SPARK
+            </span>
             <br />
-            <span className="text-glow-orange text-primary">2K26</span>
+            <span className="inline-block text-glow-orange text-primary animate-float" style={{ animationDelay: "0.6s", animationFillMode: "both" }}>
+              2K26
+            </span>
           </h1>
 
           {/* Tagline */}
-          <p className="text-xl md:text-3xl font-exo font-light text-muted-foreground mb-4 tracking-wide">
+          <p className="text-xl md:text-3xl font-exo font-light text-muted-foreground mb-4 tracking-wide animate-fade-in-up" style={{ animationDelay: "0.8s", animationFillMode: "both" }}>
             Where Innovation Meets Adrenaline
           </p>
 
           {/* Feature Icons */}
-          <div className="flex items-center justify-center gap-8 mb-12 text-foreground/80">
-            <div className="flex items-center gap-2">
-              <Sword className="w-6 h-6 text-primary" />
+          <div className="flex items-center justify-center gap-8 mb-12 text-foreground/80 animate-fade-in" style={{ animationDelay: "1s", animationFillMode: "both" }}>
+            <div className="flex items-center gap-2 animate-slide-in" style={{ animationDelay: "1.2s", animationFillMode: "both" }}>
+              <Sword className="w-6 h-6 text-primary animate-bounce-subtle" />
               <span className="text-sm font-orbitron">Gaming</span>
             </div>
             <div className="w-px h-6 bg-border" />
-            <div className="flex items-center gap-2">
-              <Zap className="w-6 h-6 text-secondary" />
+            <div className="flex items-center gap-2 animate-scale-in" style={{ animationDelay: "1.3s", animationFillMode: "both" }}>
+              <Zap className="w-6 h-6 text-secondary animate-bounce-subtle" style={{ animationDelay: "0.2s" }} />
               <span className="text-sm font-orbitron">Technical</span>
             </div>
             <div className="w-px h-6 bg-border" />
-            <div className="flex items-center gap-2">
-              <Trophy className="w-6 h-6 text-primary" />
+            <div className="flex items-center gap-2 animate-slide-in-right" style={{ animationDelay: "1.4s", animationFillMode: "both" }}>
+              <Trophy className="w-6 h-6 text-primary animate-bounce-subtle" style={{ animationDelay: "0.4s" }} />
               <span className="text-sm font-orbitron">Cultural</span>
             </div>
           </div>
@@ -93,6 +103,8 @@ const Hero = () => {
               variant="hero"
               size="xl"
               onClick={() => scrollToSection("contact")}
+              className="animate-scale-bounce"
+              style={{ animationDelay: "1.5s", animationFillMode: "both" }}
             >
               Join the Battle
             </Button>
@@ -100,6 +112,8 @@ const Hero = () => {
               variant="battle"
               size="xl"
               onClick={() => navigate("/events")}
+              className="animate-scale-bounce"
+              style={{ animationDelay: "1.6s", animationFillMode: "both" }}
             >
               Explore Events
             </Button>
