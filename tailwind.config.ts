@@ -222,6 +222,26 @@ export default {
             opacity: "0" 
           },
         },
+        "smoke-trail": {
+          "0%": { 
+            transform: "scale(0.5) translateY(0)",
+            opacity: "0.7",
+          },
+          "100%": { 
+            transform: "scale(2) translateY(-30px)",
+            opacity: "0",
+          },
+        },
+        "smoke-linger": {
+          "0%": { 
+            transform: "scale(0.5) rotate(0deg)",
+            opacity: "0.6",
+          },
+          "100%": { 
+            transform: "scale(3) rotate(45deg)",
+            opacity: "0",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -248,6 +268,8 @@ export default {
         "bullet-fire-reverse": "bullet-fire-reverse 0.9s linear infinite",
         "fire-explosion": "fire-explosion 1.5s ease-out infinite",
         "muzzle-flash": "muzzle-flash 0.3s ease-out infinite",
+        "smoke-trail": "smoke-trail 0.8s ease-out infinite",
+        "smoke-linger": "smoke-linger 2.5s ease-out infinite",
       },
     },
   },

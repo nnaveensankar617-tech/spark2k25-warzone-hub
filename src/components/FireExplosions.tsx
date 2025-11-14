@@ -83,6 +83,24 @@ const FireExplosions = () => {
               boxShadow: `0 0 40px ${explosion.color}`,
             }}
           />
+
+          {/* Lingering smoke clouds */}
+          {[...Array(4)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+              style={{
+                width: '60px',
+                height: '60px',
+                background: `radial-gradient(circle, hsl(var(--muted-foreground) / 0.4), transparent)`,
+                borderRadius: '50%',
+                animation: `smoke-linger ${explosion.duration + 0.5}s ease-out infinite`,
+                animationDelay: `${explosion.delay + 0.3 + i * 0.15}s`,
+                filter: 'blur(4px)',
+                transform: `rotate(${i * 90}deg)`,
+              }}
+            />
+          ))}
         </div>
       ))}
     </div>
