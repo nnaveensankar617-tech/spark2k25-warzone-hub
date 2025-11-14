@@ -2,29 +2,19 @@ import { Button } from "@/components/ui/button";
 import { Sword, Zap, Trophy } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import heroBattlefield from "@/assets/hero-battlefield.jpg";
-import FireExplosion from "@/components/effects/FireExplosion";
-import ScrollSmoke from "@/components/effects/ScrollSmoke";
-import BulletFire, { useBulletFire } from "@/components/effects/BulletFire";
 
 const Hero = () => {
   const navigate = useNavigate();
-  const { bullets, fireBullet } = useBulletFire();
   
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <>
-      {/* Game Effects */}
-      <FireExplosion />
-      <ScrollSmoke />
-      <BulletFire bullets={bullets} />
-      
-      <section
-        id="home"
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      >
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -112,10 +102,7 @@ const Hero = () => {
             <Button
               variant="hero"
               size="xl"
-              onClick={(e) => {
-                fireBullet(e);
-                setTimeout(() => scrollToSection("contact"), 300);
-              }}
+              onClick={() => scrollToSection("contact")}
               className="animate-scale-bounce"
               style={{ animationDelay: "1.5s", animationFillMode: "both" }}
             >
@@ -124,10 +111,7 @@ const Hero = () => {
             <Button
               variant="battle"
               size="xl"
-              onClick={(e) => {
-                fireBullet(e);
-                setTimeout(() => navigate("/events"), 300);
-              }}
+              onClick={() => navigate("/events")}
               className="animate-scale-bounce"
               style={{ animationDelay: "1.6s", animationFillMode: "both" }}
             >
@@ -139,8 +123,7 @@ const Hero = () => {
 
       {/* Bottom Gradient Fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-5" />
-      </section>
-    </>
+    </section>
   );
 };
 

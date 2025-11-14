@@ -17,9 +17,6 @@ export default {
         orbitron: ['Orbitron', 'sans-serif'],
         exo: ['Exo 2', 'sans-serif'],
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -197,19 +194,6 @@ export default {
         "spark-rise": "spark-rise 6s linear infinite",
         "fire-rise": "fire-rise 8s ease-in infinite",
         "shimmer": "shimmer 3s linear infinite",
-        // Fire Explosion Effects
-        "explosion-core": "explosion-core 1s ease-out forwards",
-        "explosion-particle": "explosion-particle 0.8s ease-out forwards",
-        "fire-spark": "fire-spark 0.6s ease-out forwards",
-        "shockwave": "shockwave 0.8s ease-out forwards",
-        "screen-flash": "screen-flash 0.5s ease-out forwards",
-        // Scroll Smoke Effects
-        "smoke-trail": "smoke-trail 2s ease-out forwards",
-        // Bullet Fire Effects
-        "bullet-fire": "bullet-fire 0.6s ease-out forwards",
-        "muzzle-flash": "muzzle-flash 0.3s ease-out forwards",
-        "bullet-spark": "bullet-spark 0.4s ease-out forwards",
-        "fire-trail": "fire-trail 0.5s ease-out forwards",
       },
     },
   },
