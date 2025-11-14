@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Sword, Zap, Trophy } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import heroBattlefield from "@/assets/hero-battlefield.jpg";
+import BulletEffects from "@/components/BulletEffects";
+import FireExplosions from "@/components/FireExplosions";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -51,6 +53,11 @@ const Hero = () => {
         ))}
       </div>
 
+      {/* Bullet Effects */}
+      <BulletEffects />
+
+      {/* Fire Explosions */}
+      <FireExplosions />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
