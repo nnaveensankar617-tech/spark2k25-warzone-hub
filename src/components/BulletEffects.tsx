@@ -57,18 +57,35 @@ const BulletEffects = () => {
               opacity: 0.8,
             }}
           >
-            {/* Bullet head */}
+          {/* Bullet head */}
+          <div
+            className="absolute right-0 top-1/2 -translate-y-1/2"
+            style={{
+              width: `${bullet.size * 2}px`,
+              height: `${bullet.size * 2}px`,
+              background: bullet.color,
+              borderRadius: '50%',
+              boxShadow: `0 0 ${bullet.size * 6}px ${bullet.color}`,
+            }}
+          />
+          
+          {/* Smoke trails */}
+          {[...Array(3)].map((_, i) => (
             <div
-              className="absolute right-0 top-1/2 -translate-y-1/2"
+              key={i}
+              className="absolute left-0 top-1/2 -translate-y-1/2"
               style={{
-                width: `${bullet.size * 2}px`,
-                height: `${bullet.size * 2}px`,
-                background: bullet.color,
+                width: `${bullet.size * 3}px`,
+                height: `${bullet.size * 3}px`,
+                background: `radial-gradient(circle, hsl(var(--muted-foreground) / 0.3), transparent)`,
                 borderRadius: '50%',
-                boxShadow: `0 0 ${bullet.size * 6}px ${bullet.color}`,
+                animation: `smoke-trail ${0.6 + i * 0.1}s ease-out infinite`,
+                animationDelay: `${bullet.delay + i * 0.1}s`,
+                filter: 'blur(2px)',
               }}
             />
-          </div>
+          ))}
+        </div>
         </div>
       ))}
     </div>
