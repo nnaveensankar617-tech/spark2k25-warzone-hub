@@ -172,76 +172,6 @@ export default {
           "0%": { backgroundPosition: "-1000px 0" },
           "100%": { backgroundPosition: "1000px 0" },
         },
-        "bullet-fire": {
-          "0%": { 
-            transform: "translateX(-100vw) translateY(0) scale(1)", 
-            opacity: "1" 
-          },
-          "100%": { 
-            transform: "translateX(100vw) translateY(-20px) scale(0.5)", 
-            opacity: "0" 
-          },
-        },
-        "bullet-fire-reverse": {
-          "0%": { 
-            transform: "translateX(100vw) translateY(0) scale(1)", 
-            opacity: "1" 
-          },
-          "100%": { 
-            transform: "translateX(-100vw) translateY(20px) scale(0.5)", 
-            opacity: "0" 
-          },
-        },
-        "fire-explosion": {
-          "0%": { 
-            transform: "scale(0) rotate(0deg)", 
-            opacity: "1",
-            borderRadius: "50%" 
-          },
-          "50%": { 
-            opacity: "0.8",
-            borderRadius: "30%" 
-          },
-          "100%": { 
-            transform: "scale(4) rotate(180deg)", 
-            opacity: "0",
-            borderRadius: "10%" 
-          },
-        },
-        "muzzle-flash": {
-          "0%": { 
-            transform: "scale(0)", 
-            opacity: "1" 
-          },
-          "50%": { 
-            transform: "scale(1.5)", 
-            opacity: "0.8" 
-          },
-          "100%": { 
-            transform: "scale(0)", 
-            opacity: "0" 
-          },
-        },
-        "smoke-trail": {
-          "0%": { 
-            transform: "scale(0.5) translateY(0)",
-            opacity: "0.7",
-          },
-          "100%": { 
-            transform: "scale(2) translateY(-30px)",
-            opacity: "0",
-          },
-        },
-        "smoke-linger": {
-          "0%": { 
-            transform: "scale(0.5) rotate(0deg)",
-            opacity: "0.6",
-          },
-          "100%": { 
-            transform: "scale(3) rotate(45deg)",
-            opacity: "0",
-          },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -264,12 +194,6 @@ export default {
         "spark-rise": "spark-rise 6s linear infinite",
         "fire-rise": "fire-rise 8s ease-in infinite",
         "shimmer": "shimmer 3s linear infinite",
-        "bullet-fire": "bullet-fire 0.8s linear infinite",
-        "bullet-fire-reverse": "bullet-fire-reverse 0.9s linear infinite",
-        "fire-explosion": "fire-explosion 1.5s ease-out infinite",
-        "muzzle-flash": "muzzle-flash 0.3s ease-out infinite",
-        "smoke-trail": "smoke-trail 0.8s ease-out infinite",
-        "smoke-linger": "smoke-linger 2.5s ease-out infinite",
       },
     },
   },
