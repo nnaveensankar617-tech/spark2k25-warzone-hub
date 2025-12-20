@@ -4,7 +4,8 @@ import Footer from "@/components/Footer";
 import FireParticles from "@/components/FireParticles";
 import { Card, CardContent } from "@/components/ui/card";
 import Shinky from "@/components/ui/ShinyText";
-
+import sparkLogo from "@/assets/spark-logo.png";
+import { TimelineDemo } from "@/components/ui/TimelineDemo";
 
 
 const AboutPage = () => {
@@ -70,13 +71,13 @@ const AboutPage = () => {
       <FireParticles density={30} />
       <Navbar />
 
-     
-      
+
+
       {/* Hero Section */}
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center animate-slide-up">
             <div className="inline-block px-4 py-2 rounded-full bg-card/50 border border-primary/30 mb-6">
@@ -84,9 +85,9 @@ const AboutPage = () => {
                 About the Event
               </span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-sans font-bold mb-6">
+            <h1 className="text-5xl md:text-7xl font-sans font-bold mb-6 flex flex-col items-center justify-center gap-4">
               <span className="text-secondary text-glow-cyan">What is</span>{" "}
-              <span className="text-primary"><Shinky text="SPARK 2026?" /></span>
+              <img src={sparkLogo} alt="SPARK 2026" className="h-24 md:h-32 object-contain drop-shadow-[0_0_15px_rgba(195,13,22,0.6)] animate-pulse" />
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto font-exo leading-relaxed">
               <Shinky text="SPARK 2026 is all set to ignite SVCE Tirupati with a vibrant blend of technology, culture, and sports. Students from across the nation will gather to showcase their talents, compete in exciting challenges, and experience an atmosphere buzzing with innovation. This year’s spotlight events include the inspiring Youth Summit and impactful Leadership Talks, bringing together brilliant minds to share ideas and vision. From high-energy hackathons and creative tech/non-tech events to thrilling sports competitions, SPARK 2026 promises a nonstop wave of excitement. As the day winds down, vibe with your friends and enjoy electrifying performances and entertainment nights that turn the campus into a festival of lights and music. Brace yourself SPARK 2026 is going to be epic." />
@@ -94,7 +95,7 @@ const AboutPage = () => {
           </div>
         </div>
 
- 
+
       </section>
 
       {/* Stats Section */}
@@ -151,7 +152,7 @@ const AboutPage = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
+
                   <div className="relative z-10">
                     <div className="w-16 h-16 rounded-lg bg-primary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                       <Icon className="w-8 h-8 text-primary" />
@@ -226,9 +227,9 @@ const AboutPage = () => {
                   Our <span className="text-secondary text-glow-cyan">Vision</span>
                 </h2>
                 <p className="text-lg text-muted-foreground font-exo leading-relaxed mb-6">
-                  To create an ecosystem where creativity meets competition, where innovation thrives, 
-                  and where every participant walks away with memories that last a lifetime. SPARK 2K26 
-                  is more than just an event it's a movement that celebrates the spirit of youth, 
+                  To create an ecosystem where creativity meets competition, where innovation thrives,
+                  and where every participant walks away with memories that last a lifetime. SPARK 2K26
+                  is more than just an event it's a movement that celebrates the spirit of youth,
                   the power of technology, and the beauty of collaboration.
                 </p>
                 <p className="text-xl font-orbitron font-bold text-primary">
@@ -239,6 +240,25 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
+
+      
+              <section className="py-16 relative">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-12">
+      <h2 className="text-4xl md:text-5xl font-orbitron font-bold mb-4">
+        Event <span className="text-secondary text-glow-cyan">Timeline</span>
+      </h2>
+      <p className="text-muted-foreground font-exo max-w-2xl mx-auto">
+        A journey through the evolution and milestones of SPARK
+      </p>
+    </div>
+
+    <TimelineDemo />
+  </div>
+</section>
+
+
+     
 
       <Footer />
     </div>

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import sparkLogo from "@/assets/spark-logo.png";
+import sparkLogo from "@/assets/svce-logo.png";
 import { motion, useScroll, useSpring } from "framer-motion";
 
 const Navbar = () => {
@@ -93,8 +93,8 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-          ? "bg-black/80 backdrop-blur-md border-b border-white/10 shadow-lg"
-          : "bg-transparent"
+        ? "bg-black/80 backdrop-blur-md border-b border-white/10 shadow-lg"
+        : "bg-transparent"
         }`}
     >
       <div className="container mx-auto px-4">
@@ -106,11 +106,8 @@ const Navbar = () => {
             <img
               src={sparkLogo}
               alt="SPARK 2K26"
-              className="h-12 w-12 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12"
+              className="h-16 w-auto transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12 drop-shadow-[0_0_8px_rgba(195,13,22,0.8)]"
             />
-            <span className="text-2xl font-orbitron font-bold text-glow-cyan">
-              SPARK <span className="text-primary">2026</span>
-            </span>
           </div>
 
           {/* Desktop Navigation */}

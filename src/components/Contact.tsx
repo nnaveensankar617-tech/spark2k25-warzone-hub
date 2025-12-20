@@ -41,7 +41,7 @@ const Contact = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-slide-up">
+        <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 border border-primary/30 mb-4">
             <Mail className="w-4 h-4 text-primary" />
             <span className="text-sm font-orbitron font-semibold text-primary uppercase tracking-wider">
@@ -58,7 +58,7 @@ const Contact = () => {
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="animate-slide-up" style={{ animationDelay: "0.1s" }}>
+          <div className="">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-orbitron font-semibold text-foreground mb-2">
@@ -132,7 +132,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-8 animate-slide-up" style={{ animationDelay: "0.2s" }}>
+          <div className="space-y-8">
             {/* Contact Cards */}
             <div className="space-y-6">
               <div className="p-6 rounded-lg bg-card/50 border border-border hover:border-primary/50 transition-all duration-300">

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Sword, Zap, Trophy, Crosshair, Cpu, ChevronDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import heroBattlefield from "@/assets/hero-battlefield.jpg";
+import sparkLogo from "@/assets/spark-logo.png";
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
 
 const Hero = () => {
@@ -124,25 +125,33 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-8"
         >
-          <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md mb-1 hover:bg-primary/20 transition-colors cursor-crosshair">
-            <Cpu className="w-4 h-4 text-primary animate-pulse" />
-            <span className="text-sm font-orbitron text-primary tracking-widest">INITIATING SEQUENCE</span>
-          </div>
 
-          <h1 className="text-6xl md:text-9xl font-black font-orbitron tracking-tighter mb-4 relative leading-[0.9]">
-            <div className="relative inline-block text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/50 filter drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-              SPARK
-            </div>
-            <br />
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-orange-400 to-primary text-5xl md:text-8xl"
+          <div className="relative mb-6 flex justify-center items-center">
+            <motion.div
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="relative z-10"
             >
-              2026
-            </motion.span>
-          </h1>
+              <motion.img
+                src={sparkLogo}
+                alt="SPARK 2026"
+                className="w-full max-w-[600px] h-auto object-contain drop-shadow-[0_0_30px_rgba(195,13,22,0.6)]"
+                animate={{
+                  y: [0, -10, 0],
+                  filter: [
+                    "drop-shadow(0 0 30px rgba(195,13,22,0.6))",
+                    "drop-shadow(0 0 50px rgba(195,13,22,0.8))",
+                    "drop-shadow(0 0 30px rgba(195,13,22,0.6))"
+                  ]
+                }}
+                transition={{
+                  y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+                  filter: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+                }}
+              />
+            </motion.div>
+          </div>
 
           <motion.p
             initial={{ opacity: 0 }}

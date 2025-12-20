@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import FireParticles from "@/components/FireParticles";
 import { Button } from "@/components/ui/button";
 import DemoOne from "@/components/sphere-demo";
+import sparkLogo from "@/assets/spark-logo.png";
+import { StickyScroll } from "@/components/ui/StickyScroll";
 
 interface GalleryItem {
   id: number;
@@ -35,9 +37,57 @@ const GalleryPage = () => {
     { id: 9, title: "Trophy Ceremony", category: "Winners", image: "", description: "Champions crowned" },
   ];
 
-  const filteredItems = selectedCategory === "All" 
-    ? galleryItems 
+  const filteredItems = selectedCategory === "All"
+    ? galleryItems
     : galleryItems.filter(item => item.category === selectedCategory);
+
+  const stickyScrollContent = [
+    {
+      title: "Gaming Arena",
+      description: "Experience the thrill of competitive gaming with top-tier setups and intense rivalries.",
+      content: (
+        <div className="h-full w-full bg-gradient-to-br from-cyan-500 to-emerald-500 flex items-center justify-center text-white">
+          <span className="text-2xl font-bold">Gaming Zone</span>
+        </div>
+      ),
+    },
+    {
+      title: "Cultural Vibes",
+      description: "Immerse yourself in a fusion of tradition and modernity through electrifying performances.",
+      content: (
+        <div className="h-full w-full flex items-center justify-center text-white bg-gradient-to-br from-pink-500 to-indigo-500">
+          <span className="text-2xl font-bold">Cultural Fest</span>
+        </div>
+      ),
+    },
+    {
+      title: "Tech Innovation",
+      description: "Witness the future with cutting-edge tech showcases and hackathon breakthroughs.",
+      content: (
+        <div className="h-full w-full bg-gradient-to-br from-orange-500 to-yellow-500 flex items-center justify-center text-white">
+          <span className="text-2xl font-bold">Tech World</span>
+        </div>
+      ),
+    },
+    {
+      title: "Tech Innovation",
+      description: "Witness the future with cutting-edge tech showcases and hackathon breakthroughs.",
+      content: (
+        <div className="h-full w-full bg-gradient-to-br from-orange-500 to-yellow-500 flex items-center justify-center text-white">
+          <span className="text-2xl font-bold">Tech World</span>
+        </div>
+      ),
+    },
+    {
+      title: "Cultural Vibes",
+      description: "Immerse yourself in a fusion of tradition and modernity through electrifying performances.",
+      content: (
+        <div className="h-full w-full flex items-center justify-center text-white bg-gradient-to-br from-pink-500 to-indigo-500">
+          <span className="text-2xl font-bold">Cultural Fest</span>
+        </div>
+      ),
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
@@ -49,22 +99,22 @@ const GalleryPage = () => {
         {/* Layered Background with Parallax Effect */}
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iIzMzMyIgb3BhY2l0eT0iLjEiLz48L2c+PC9zdmc+')] opacity-20" />
-        
+
         {/* Glowing Accent Orbs */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
-        
+
         <div className="relative z-10 text-center animate-scale-in">
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-sans font-bold mb-6 text-glow-orange animate-glow-pulse">
-            SPARK 2026
-          </h1>
+          <div className="mb-6 flex justify-center">
+            <img src={sparkLogo} alt="SPARK 2026" className="h-24 md:h-40 object-contain drop-shadow-[0_0_20px_rgba(195,13,22,0.6)] animate-glow-pulse" />
+          </div>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-orbitron font-bold mb-6 text-secondary text-glow-cyan">
             GALLERY
           </h2>
           <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-16 font-exo max-w-3xl mx-auto">
             Relive the thrill, chaos, and memories
           </p>
-          
+
           <div className="flex items-center justify-center gap-2 text-primary animate-bounce">
             <span className="text-sm uppercase tracking-wider font-orbitron">View Moments</span>
             <ChevronDown className="w-5 h-5" />
@@ -105,7 +155,7 @@ const GalleryPage = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
                   <span className="text-6xl">📸</span>
                 </div>
-                
+
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="text-center">
@@ -125,7 +175,7 @@ const GalleryPage = () => {
           <div className="absolute top-1/2 left-1/3 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
           <div className="absolute top-1/2 right-1/3 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-orbitron font-bold text-center mb-16 text-glow-cyan animate-slide-up">
             Highlight <span className="text-primary text-glow-orange">Reels</span>
@@ -145,10 +195,10 @@ const GalleryPage = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Soft Glow Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
+
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/95 to-transparent p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                   <p className="text-lg font-orbitron font-bold text-foreground">Highlight Reel {item}</p>
                   <p className="text-sm text-muted-foreground mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">10-20 sec epic moments</p>
@@ -160,10 +210,10 @@ const GalleryPage = () => {
       </section>
 
       {/* Behind the Scenes - Horizontal Scroll with Tilt Effect */}
- {/* Event Highlights Sphere - FORCED HEIGHT FIX */}
+      {/* Event Highlights Sphere - FORCED HEIGHT FIX */}
       {/* Event Highlights Sphere */}
       <section className="py-10 relative text-center flex flex-col items-center justify-center">
-        
+
         <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-glow-cyan z-20 mb-4">
           Event Highlights Sphere
         </h2>
@@ -195,7 +245,7 @@ const GalleryPage = () => {
                       <p className="text-sm text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-500">Candid captures</p>
                     </div>
                   </div>
-                  
+
                   {/* Motion Blur Effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
@@ -205,12 +255,27 @@ const GalleryPage = () => {
         </div>
       </section>
 
+      <section>
+
+
+        <StickyScroll content={stickyScrollContent} />
+
+
+
+      </section>
+
+
+
+
+
+
+
       {/* Outro Section - Cinematic Banner */}
       <section className="py-32 relative overflow-hidden">
         {/* Dramatic Background */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-primary/10 to-background" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-3xl animate-pulse" />
-        
+
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="animate-scale-in">
             <p className="text-3xl md:text-5xl lg:text-6xl font-orbitron font-bold mb-8 text-glow-orange animate-glow-pulse leading-tight max-w-4xl mx-auto">
@@ -249,12 +314,12 @@ const GalleryPage = () => {
             >
               <X className="w-6 h-6" />
             </Button>
-            
+
             <div className="p-8">
               <div className="aspect-video rounded-xl bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center mb-6">
                 <span className="text-9xl">📸</span>
               </div>
-              
+
               <div className="text-center space-y-3">
                 <h3 className="text-3xl font-orbitron font-bold text-primary">
                   {selectedImage.title}

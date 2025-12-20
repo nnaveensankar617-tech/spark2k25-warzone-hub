@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Search, X, Calendar, DollarSign, Trophy, Users } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -12,27 +12,74 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-import { events, Event } from "@/components/data/event-data";    
+
+import { SearchBar } from "@/components/SearchBar";
+import { FilterSection } from "@/components/FilterSection";
+import { EventCard } from "@/components/EventCard";
+import { SortSelect } from "@/components/SortSelect";
+import { MobileFilterDrawer } from "@/components/MobileFilterDrawer";
+import { events, categories, dateTags, departments } from "@/components/data/events";
 
 
-const EventsPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+export default function EventsPage() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [activeFilter, setActiveFilter] = useState("All Events");
+  /* Update initial state to match sort values */
+  const [sortBy, setSortBy] = useState("date-desc");
+  const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
-  const categories = ["All", "Technical", "Cultural", "Sports", "Signature Events",];
+  const filteredEvents = useMemo(() => {
+    let filtered = [...events];
 
-  const filteredEvents = events.filter((event) => {
-    const matchesCategory =
-      selectedCategory === "All" || event.category === selectedCategory;
-    const matchesSearch = event.name
-      .toLowerCase()
-      .includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+    // Search filter
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(
+        (event) =>
+          event.title.toLowerCase().includes(query) ||
+          event.description.toLowerCase().includes(query) ||
+          event.venue.toLowerCase().includes(query)
+      );
+    }
+
+    // Single filter logic - check which group the filter belongs to
+    if (activeFilter !== "All Events") {
+      if (categories.includes(activeFilter as any)) {
+        filtered = filtered.filter((event) => event.categories.includes(activeFilter as any));
+      } else if (dateTags.includes(activeFilter as any)) {
+        filtered = filtered.filter((event) => event.dateTag === activeFilter);
+      } else if (departments.includes(activeFilter as any)) {
+        filtered = filtered.filter((event) => event.department === activeFilter);
+      }
+    }
+
+    // Sort
+    switch (sortBy) {
+      case "date-desc":
+        filtered.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        break;
+      case "date-asc":
+        filtered.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+        break;
+      case "name-asc":
+        filtered.sort((a, b) => a.title.localeCompare(b.title));
+        break;
+      case "name-desc":
+        filtered.sort((a, b) => b.title.localeCompare(a.title));
+        break;
+    }
+
+    return filtered;
+  }, [searchQuery, activeFilter, sortBy]);
+
+
+
+  const handleFilterChange = (filter: string) => {
+    setActiveFilter(filter);
+  };
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
+    <div className="min-h-screen bg-background text-foreground relative overflow-clip">
       {/* Floating Golden Particles */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         {[...Array(25)].map((_, i) => (
@@ -56,6 +103,7 @@ const EventsPage = () => {
       {/* Header */}
       <Navbar />
 
+
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 px-4">
         <div className="container mx-auto max-w-6xl relative z-10">
@@ -73,199 +121,80 @@ const EventsPage = () => {
             </p>
           </div>
 
-          {/* Search Bar */}
-          <div className="max-w-2xl mx-auto mb-8 animate-slide-up" style={{ animationDelay: "0.1s" }}>
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
-              <Input
-                type="text"
-                placeholder="Search for your favorite event…"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-6 bg-card/50 backdrop-blur-sm border-border focus:border-primary/50 rounded-full text-foreground placeholder:text-muted-foreground"
-              />
-            </div>
-          </div>
+
 
           {/* Category Navbar */}
-          <div className="flex items-center justify-center gap-2 flex-wrap mb-16 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? "default" : "ghost"}
-                onClick={() => setSelectedCategory(category)}
-                className={`font-orbitron transition-all duration-300 ${
-                  selectedCategory === category
-                    ? "bg-primary/20 text-primary border-primary/50"
-                    : "text-muted-foreground hover:text-primary hover:border-primary/30"
-                }`}
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
+
         </div>
       </section>
 
-      {/* Event Cards Section */}
-      <section className="relative pb-24 px-4">
-        <div className="container mx-auto max-w-7xl relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredEvents.map((event, index) => (
-              <div
-                key={event.id}
-                className="group relative animate-slide-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="relative rounded-xl overflow-hidden bg-card/50 backdrop-blur-sm border border-border hover:border-primary/50 transition-all duration-300 hover:scale-105">
-                  {/* Poster */}
-                  <div className="relative h-64 overflow-hidden">
-                    <img
-                      src={event.poster}
-                      alt={event.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-                    
-                    {/* Category Badge */}
-                    <div className="absolute top-4 right-4">
-                      <span className="px-3 py-1 rounded-full text-xs font-orbitron font-bold bg-primary/20 text-primary border border-primary/30 backdrop-blur-sm">
-                        {event.category}
-                      </span>
-                    </div>
-                  </div>
 
-                  {/* Content */}
-                  <div className="p-6">
-                    <h3 className="text-2xl font-orbitron font-bold mb-3 text-foreground">
-                      {event.name}
-                    </h3>
-                    
-                    <div className="flex items-center gap-4 mb-4 text-sm text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
-                        <span>{event.date}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <FaIndianRupeeSign className="w-4 h-4" /> 
-                        <span>{event.entryFee}</span>
-                      </div>
-                    </div>
+      <div className="min-h-screen bg-background">
 
-                    <Button
-                      onClick={() => setSelectedEvent(event)}
-                      className="w-full bg-primary/20 text-primary border border-primary/30 hover:bg-primary/30 hover:border-primary/50 font-orbitron transition-all duration-300"
-                    >
-                      View Details
-                    </Button>
-                  </div>
 
-                  {/* Glow Effect */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1/2 bg-primary/20 blur-3xl" />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
 
-          {filteredEvents.length === 0 && (
-            <div className="text-center py-16">
-              <p className="text-xl text-muted-foreground font-exo">
-                No events found. Try a different search or category.
-              </p>
+        <main className="container mx-auto px-4 py-8">
+          {/* Search and Controls */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <div className="flex-1">
+              <SearchBar value={searchQuery} onChange={setSearchQuery} />
             </div>
-          )}
-        </div>
-      </section>
+            <div className="flex gap-2">
+              <MobileFilterDrawer
+                activeFilter={activeFilter}
+                onFilterChange={handleFilterChange}
+                open={mobileFilterOpen}
+                onOpenChange={setMobileFilterOpen}
+              />
+              <SortSelect value={sortBy} onChange={setSortBy} />
+            </div>
+          </div>
 
-      {/* Event Details Modal */}
-      <Dialog open={!!selectedEvent} onOpenChange={() => setSelectedEvent(null)}>
-        <DialogContent className="max-w-4xl bg-card/95 backdrop-blur-xl border-border p-0 overflow-hidden">
-          {selectedEvent && (
-            <div className="grid grid-cols-1 md:grid-cols-2">
-              {/* Right Side - Poster */}
-              <div className="relative h-64 md:h-auto order-first md:order-last">
-                <img
-                  src={selectedEvent.poster}
-                  alt={selectedEvent.name}
-                  className="w-full h-full object-cover"
+          <div className="flex gap-8">
+            {/* Desktop Filter Sidebar */}
+            <aside className="hidden lg:block w-72 flex-shrink-0">
+              <div className="sticky top-24 bg-card/50 rounded-xl border border-border/50 p-5">
+                <h2 className="text-lg font-bold text-foreground mb-4">Filters</h2>
+                <FilterSection
+                  activeFilter={activeFilter}
+                  onFilterChange={handleFilterChange}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent md:bg-gradient-to-l" />
               </div>
+            </aside>
 
-              {/* Left Side - Info */}
-              <div className="p-8 relative">
-                <DialogHeader>
-                  <DialogTitle className="text-3xl font-orbitron font-bold text-foreground mb-2">
-                    {selectedEvent.name}
-                  </DialogTitle>
-                  <div className="flex items-center gap-3 mb-6">
-                    <span className="px-3 py-1 rounded-full text-xs font-orbitron font-bold bg-primary/20 text-primary border border-primary/30">
-                      {selectedEvent.category}
-                    </span>
-                    <span className="px-3 py-1 rounded-full text-xs font-orbitron font-bold bg-secondary/20 text-secondary border border-secondary/30">
-                      {selectedEvent.type}
-                    </span>
-                  </div>
-                </DialogHeader>
-
-                <div className="space-y-4 text-sm">
-                  <div>
-                    <p className="text-muted-foreground font-exo mb-1">Event Code</p>
-                    <p className="text-foreground font-orbitron font-bold">{selectedEvent.code}</p>
-                  </div>
-
-                  <div>
-                    <p className="text-muted-foreground font-exo mb-1">Date</p>
-                    <p className="text-foreground font-exo">{selectedEvent.date}</p>
-                  </div>
-
-                  <div>
-                    <p className="text-muted-foreground font-exo mb-1">Entry Fee</p>
-                   <div className="flex items-center gap-1">
-                        <FaIndianRupeeSign className="w-4 h-4" /> 
-                        <p className="text-foreground font-exo"> {selectedEvent.entryFee}</p>
-                    
-                      </div>
-                    
-                  </div>
-
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <Trophy className="w-4 h-4 text-primary" />
-                      <p className="text-muted-foreground font-exo">Prizes</p>
-                    </div>
-                    <p className="text-foreground font-exo">{selectedEvent.prizes}</p>
-                  </div>
-
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <Users className="w-4 h-4 text-secondary" />
-                      <p className="text-muted-foreground font-exo">Rules</p>
-                    </div>
-                    <ul className="space-y-1">
-                      {selectedEvent.rules.map((rule, index) => (
-                        <li key={index} className="text-foreground font-exo flex items-start gap-2">
-                          <span className="text-primary mt-1">•</span>
-                          <span>{rule}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+            {/* Events Grid */}
+            <div className="flex-1">
+              {/* Active filter indicator */}
+              {activeFilter !== "All Events" && (
+                <div className="mb-4 text-sm text-muted-foreground">
+                  Showing: <span className="text-primary font-medium">{activeFilter}</span>
                 </div>
+              )}
 
-                <Button
-                  onClick={() => setSelectedEvent(null)}
-                  className="w-full mt-6 bg-primary text-primary-foreground hover:bg-primary/90 font-orbitron"
-                >
-                  Register
-                </Button>
+              {/* Results count */}
+              <div className="mb-6 text-sm text-muted-foreground">
+                {filteredEvents.length} event{filteredEvents.length !== 1 ? "s" : ""} found
               </div>
+
+              {filteredEvents.length > 0 ? (
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
+                  {filteredEvents.map((event) => (
+                    <EventCard key={event.id} event={event} />
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-16">
+                  <p className="text-muted-foreground text-lg">No events found</p>
+                  <p className="text-muted-foreground/70 text-sm mt-2">
+                    Try adjusting your search or filters
+                  </p>
+                </div>
+              )}
             </div>
-          )}
-        </DialogContent>
-      </Dialog>
+          </div>
+        </main>
+      </div>
+
 
       {/* Footer */}
       <Footer />
@@ -273,4 +202,4 @@ const EventsPage = () => {
   );
 };
 
-export default EventsPage;
+

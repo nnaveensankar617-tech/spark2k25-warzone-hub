@@ -10,7 +10,7 @@ export interface Event {
   rules: string[];
   type: "Individual" | "Team" | "Team Men" | "Singles Men" | "Singles Women" | "Team Women" | "Individual / Team" | "Single/Doubles Men" | "Single/Doubles Women" | "Individual/ Duo / Team ";
 }
-
+  
 
 
 const events: Event[] = [

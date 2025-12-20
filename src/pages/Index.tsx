@@ -7,8 +7,6 @@ import Schedule from "@/components/Schedule";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import SparkEffect from "@/components/SparkEffect";
-import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
-
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground relative">
@@ -16,25 +14,13 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
-
-        <RevealOnScroll width="100%">
-          <About />
-        </RevealOnScroll>
-
-        <RevealOnScroll width="100%">
-          <Events />
-        </RevealOnScroll>
-
-        <RevealOnScroll width="100%">
-          <Gallery />
-        </RevealOnScroll>
-
-        <RevealOnScroll width="100%">
-          <Contact />
-        </RevealOnScroll>
+        <About />
+        <Events />
+        <Gallery />
+        <Contact />
       </main>
       <Footer />
-    </div>
+    </div >
   );
 };
 

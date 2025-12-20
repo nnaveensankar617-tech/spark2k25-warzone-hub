@@ -52,7 +52,7 @@ const Gallery = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-slide-up">
+        <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 border border-primary/30 mb-4">
             <ImageIcon className="w-4 h-4 text-primary" />
             <span className="text-sm font-orbitron font-semibold text-primary uppercase tracking-wider">
@@ -70,7 +70,7 @@ const Gallery = () => {
         {/* Carousel */}
         <div className="relative max-w-5xl mx-auto">
           {/* Main Display */}
-          <div className="relative aspect-video rounded-2xl overflow-hidden border border-border shadow-2xl animate-slide-up">
+          <div className="relative aspect-video rounded-2xl overflow-hidden border border-border shadow-2xl">
             <div
               className={`absolute inset-0 bg-gradient-to-br ${galleryItems[currentIndex].color} flex items-center justify-center`}
             >
@@ -114,11 +114,10 @@ const Gallery = () => {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex
+                className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex
                     ? "w-8 bg-primary"
                     : "w-2 bg-border hover:bg-border/60"
-                }`}
+                  }`}
               />
             ))}
           </div>
@@ -129,11 +128,10 @@ const Gallery = () => {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`aspect-video rounded-lg overflow-hidden transition-all duration-300 border-2 ${
-                  index === currentIndex
+                className={`aspect-video rounded-lg overflow-hidden transition-all duration-300 border-2 ${index === currentIndex
                     ? "border-primary scale-105 shadow-[0_0_20px_hsl(var(--fire-orange)/0.5)]"
                     : "border-border hover:border-primary/50 opacity-60 hover:opacity-100"
-                }`}
+                  }`}
               >
                 <div
                   className={`w-full h-full bg-gradient-to-br ${item.color} flex items-center justify-center`}

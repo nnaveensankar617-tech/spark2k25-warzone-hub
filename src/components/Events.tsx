@@ -42,7 +42,7 @@ const Events = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-slide-up">
+        <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 border border-secondary/30 mb-4">
             <Trophy className="w-4 h-4 text-secondary" />
             <span className="text-sm font-orbitron font-semibold text-secondary uppercase tracking-wider">
@@ -63,22 +63,21 @@ const Events = () => {
           {eventCategories.map((category, index) => {
             const Icon = category.icon;
             const isOrange = category.color === "primary";
-            
+
             return (
               <div
                 key={index}
-                className="group relative animate-slide-up"
+                className="group relative"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
                 {/* Card */}
                 <div className="relative p-8 rounded-xl bg-card/50 backdrop-blur-sm border border-border hover:border-primary/50 transition-all duration-300 overflow-hidden">
                   {/* Animated Background Glow */}
                   <div
-                    className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
-                      isOrange
+                    className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${isOrange
                         ? "bg-gradient-to-br from-primary/10 via-transparent to-primary/5"
                         : "bg-gradient-to-br from-secondary/10 via-transparent to-secondary/5"
-                    }`}
+                      }`}
                   />
 
                   {/* Content */}
@@ -86,16 +85,14 @@ const Events = () => {
                     {/* Icon and Title */}
                     <div className="flex items-start gap-4 mb-4">
                       <div
-                        className={`w-16 h-16 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                          isOrange
+                        className={`w-16 h-16 rounded-xl flex items-center justify-center transition-all duration-300 ${isOrange
                             ? "bg-primary/20"
                             : "bg-secondary/20"
-                        }`}
+                          }`}
                       >
                         <Icon
-                          className={`w-8 h-8 ${
-                            isOrange ? "text-primary" : "text-secondary"
-                          }`}
+                          className={`w-8 h-8 ${isOrange ? "text-primary" : "text-secondary"
+                            }`}
                         />
                       </div>
                       <div className="flex-1">
@@ -113,11 +110,10 @@ const Events = () => {
                       {category.events.map((event, eventIndex) => (
                         <div
                           key={eventIndex}
-                          className={`px-3 py-2 rounded-md border text-sm font-exo transition-all duration-300 ${
-                            isOrange
+                          className={`px-3 py-2 rounded-md border text-sm font-exo transition-all duration-300 ${isOrange
                               ? "border-primary/30 bg-primary/5 hover:bg-primary/10 hover:border-primary/50"
                               : "border-secondary/30 bg-secondary/5 hover:bg-secondary/10 hover:border-secondary/50"
-                          }`}
+                            }`}
                         >
                           {event}
                         </div>
@@ -127,9 +123,8 @@ const Events = () => {
 
                   {/* Corner Accent */}
                   <div
-                    className={`absolute top-0 right-0 w-32 h-32 opacity-20 blur-3xl transition-opacity duration-500 group-hover:opacity-40 ${
-                      isOrange ? "bg-primary" : "bg-secondary"
-                    }`}
+                    className={`absolute top-0 right-0 w-32 h-32 opacity-20 blur-3xl transition-opacity duration-500 group-hover:opacity-40 ${isOrange ? "bg-primary" : "bg-secondary"
+                      }`}
                   />
                 </div>
               </div>
@@ -138,7 +133,7 @@ const Events = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center animate-slide-up" style={{ animationDelay: "0.6s" }}>
+        <div className="text-center">
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-card/50 backdrop-blur-sm border border-border">
             <Users className="w-5 h-5 text-primary" />
             <span className="text-sm font-exo text-muted-foreground">

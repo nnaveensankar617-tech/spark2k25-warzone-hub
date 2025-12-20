@@ -12,13 +12,14 @@ import SchedulePage from "./pages/SchedulePage";
 import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import RegistrationPage from "./pages/RegistrationPage";
+import EventDetail from "./pages/EventDetail";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ui/ScrollToTop";
 
 const queryClient = new QueryClient();
 
 const App = () => {
-  
+
 
 
   return (
@@ -37,6 +38,7 @@ const App = () => {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/register" element={<RegistrationPage />} />
+            <Route path="/event/:id" element={<EventDetail />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

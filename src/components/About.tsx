@@ -32,7 +32,7 @@ const About = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-slide-up">
+        <div className="text-center mb-16">
           <div className="inline-block px-4 py-2 rounded-full bg-card/50 border border-primary/30 mb-4">
             {<span className="text-sm font-orbitron font-semibold text-primary uppercase tracking-wider">
               About the Event
@@ -50,7 +50,7 @@ const About = () => {
           </p> */}
         </div>
 
-       
+
 
         {/* Stats Section */}
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -62,7 +62,7 @@ const About = () => {
           ].map((stat, index) => (
             <div
               key={index}
-              className="text-center p-6 rounded-lg bg-card/30 border border-border animate-slide-up"
+              className="text-center p-6 rounded-lg bg-card/30 border border-border"
               style={{ animationDelay: `${0.4 + index * 0.1}s` }}
             >
               <div className="text-4xl md:text-5xl font-orbitron font-bold text-primary mb-2">

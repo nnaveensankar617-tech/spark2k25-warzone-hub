@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FireParticles from "@/components/FireParticles";
+import sparkLogo from "@/assets/spark-logo.png";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -42,7 +43,7 @@ const ContactPage = () => {
     <div className="min-h-screen bg-background">
       <FireParticles density={30} />
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-12 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent" />
@@ -54,9 +55,12 @@ const ContactPage = () => {
                 Get In Touch
               </span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-sans font-bold mb-6">
-              Contact <span className="text-secondary text-glow-cyan">SPARK 2026</span>
-            </h1>
+            <div className="flex flex-col items-center justify-center gap-4 mb-6">
+              <h1 className="text-5xl md:text-7xl font-sans font-bold">
+                Contact
+              </h1>
+              <img src={sparkLogo} alt="SPARK 2026" className="h-20 md:h-28 object-contain drop-shadow-[0_0_15px_rgba(195,13,22,0.6)] animate-pulse" />
+            </div>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-exo">
               Have questions? Want to register? Reach out to us and become part of the revolution
             </p>
@@ -227,10 +231,10 @@ const ContactPage = () => {
           <div className="animate-slide-up" style={{ animationDelay: "0.3s" }}>
             <div className="rounded-lg overflow-hidden border-2 border-border/50 hover:border-primary/50 transition-all duration-300 shadow-[0_0_30px_hsl(var(--fire-orange)/0.2)]">
               <iframe
-                             
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.9719813829824!2d79.48344232485414!3d13.659467636722896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d4991206ff455%3A0x37f34fc0f435a909!2sSV%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1764354010221!5m2!1sen!2sin"
-  
-               width="100%"
+
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.9719813829824!2d79.48344232485414!3d13.659467636722896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d4991206ff455%3A0x37f34fc0f435a909!2sSV%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1764354010221!5m2!1sen!2sin"
+
+                width="100%"
                 height="450"
                 style={{ border: 0 }}
                 allowFullScreen
