@@ -1,15 +1,14 @@
 export type EventCategory =
   | "All Events"
-  | "Cultural Contests"
+  | "Cultural Events"
   | "Technical Events"
   | "Sports"
   | "Arts"
   | "Dance"
+  | "Pitch and Talk"
   | "Hackathons"
-  | "International Education Expo"
   | "Music"
-  | "Poster Presentation"
-  | "PPT Presentation"
+  | "Paper Presentation"
   | "Project Expo"
   | "Spotlight Events";
 
@@ -30,16 +29,15 @@ export type Department =
 
 export const categories: EventCategory[] = [
   "All Events",
-  "Cultural Contests",
+  "Cultural Events",
   "Technical Events",
   "Sports",
   "Arts",
   "Dance",
+  "Pitch and Talk",
   "Hackathons",
-  "International Education Expo",
   "Music",
-  "PPT Presentation",
-  "Poster Presentation",
+  "Paper Presentation",
   "Project Expo",
   "Spotlight Events",
 ];
@@ -79,711 +77,986 @@ export interface Event {
 }
 
 export const events: Event[] = [
-  {
+{
     id: "1",
-    title: "PPT Presentation (CSE)",
-    description: "hello",
-    date: "",
+    title: "Pitch and Talk",
+    description:
+      "A technical speaking challenge that tests spontaneity, clarity of thought, and technical awareness.",
+    date: "6th March 2026",
     dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "PPT Presentation"],
-    department: "CSE",
+    time: "10:30 - 04:30",
+    venue: "Seminar Hall / Dept. Venues",
+    categories: ["Technical Events", "Pitch and Talk"],
+    department: "",
     image: "/event-images/sample.png",
     registrationOpen: true,
-    teamSize: "2–4 members",
+    teamSize: "Individual",
     rules: [
-      "Choose 1 topic.",
-      "Presentation duration: 8–10 minutes.",
-      "Slides must be original (no plagiarism).",
-      "Q&A session mandatory.",
-      "Stick strictly to your selected topic."
+      "Topics will be picked randomly",
+      "Individual participation only",
+      "Slides must be original",
+      "No preparation time",
+      "Use of mobile phones or notes is prohibited",
+      "Exceeding time limit leads to disqualification"
     ],
     coordinators: []
   },
   {
     id: "2",
-    title: "Poster Presentation (CSE)",
-    description: "",
-    date: "",
+    title: "3D CAD Model Design",
+    description:
+      "A hands-on technical event focused on 3D design creativity and CAD tool expertise.",
+    date: "6th March 2027",
     dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "Poster Presentation"],
-    department: "CSE",
+    time: "10:30 - 04:30",
+    venue: "Seminar Hall / Dept. Venues",
+    categories: ["Technical Events"],
+    department: "MECH",
     image: "/event-images/sample.png",
     registrationOpen: true,
     teamSize: "2 members",
     rules: [
-      "Poster size must be A2 or A3.",
-      "Poster should be clear, neat, and well-presented.",
-      "Hand-made or digital posters are allowed.",
-      "Poster must be based on a relevant CSE domain.",
-      "Explanation time: 4–5 minutes per team."
+      "Only permitted CAD tools may be used",
+      "Internet access may be restricted",
+      "Designs must be original",
+      "Time limit must be followed",
+      "Judges’ decision is final"
     ],
     coordinators: []
   },
   {
     id: "3",
-    title: "Coding Contest (CSE)",
-    description: "",
-    date: "",
+    title: "Algorithm Treasure Hunt",
+    description:
+      "A fun technical event combining algorithms, coding, and logical reasoning.",
+    date: "6th March 2028",
     dateTag: "6 Mar",
-    time: "",
-    venue: "",
+    time: "10:30 - 04:30",
+    venue: "Seminar Hall / Dept. Venues",
     categories: ["Technical Events"],
-    department: "CSE",
+    department: "",
     image: "/event-images/sample.png",
     registrationOpen: true,
-    teamSize: "2 members",
+    teamSize: "2–3 members",
     rules: [
-      "Solve programming problems within the given time.",
-      "Ranking is based on the number of problems solved.",
-      "In case of ties, the least time taken will decide the winner.",
-      "Competition consists of multiple rounds."
+      "Teams must solve clues in sequence",
+      "Time limit applies for each round",
+      "No external help allowed",
+      "Cheating leads to disqualification",
+      "Organizers’ decision is final"
     ],
     coordinators: []
   },
   {
     id: "4",
-    title: "PPT Presentation (CSC)",
-    description: "",
-    date: "",
+    title: "Agent Building",
+    description:
+      "Design intelligent agents using AI or rule-based approaches.",
+    date: "6th March 2026",
     dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "PPT Presentation"],
-    department: "CSD",
+    time: "10:30 - 04:30",
+    venue: "Seminar Hall / Dept. Venues",
+    categories: ["Technical Events"],
+    department: "CSM",
     image: "/event-images/sample.png",
     registrationOpen: true,
-    teamSize: "2–4 members",
+    teamSize: "Individual or up to 3 members",
     rules: [
-      "Choose any one topic.",
-      "Presentation time: 8–10 minutes.",
-      "Slides must be original and plagiarism-free.",
-      "Q&A session will follow the presentation."
+      "Participants must explain agent logic clearly",
+      "Internet usage depends on organizers",
+      "Pre-built solutions may be restricted",
+      "Original ideas are encouraged",
+      "Judges’ decision is final"
     ],
     coordinators: []
   },
   {
     id: "5",
-    title: "Poster Presentation (CSC)",
-    description: "",
-    date: "",
+    title: "AdZap",
+    description:
+      "A creative event blending marketing strategy and technical presentation.",
+    date: "6th March 2026",
     dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "Poster Presentation"],
+    time: "10:30 - 04:30",
+    venue: "Seminar Hall / Dept. Venues",
+    categories: ["Technical Events"],
     department: "CSD",
     image: "/event-images/sample.png",
     registrationOpen: true,
-    teamSize: "2 members",
+    teamSize: "2–4 members",
     rules: [
-      "Poster must be A2 or A3 size.",
-      "Content should be clear and neatly presented.",
-      "Explanation time: 2–3 minutes per team."
+      "Content must be original",
+      "Time limit must be followed",
+      "Offensive content is prohibited",
+      "Use of multimedia is allowed"
     ],
     coordinators: []
   },
   {
     id: "6",
-    title: "Poster Presentation (CSC)",
-    description: "",
-    date: "",
+    title: "Mobile App + IoT Integration",
+    description:
+      "Build smart systems by integrating mobile apps with IoT devices.",
+    date: "6th March 2026",
     dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "Poster Presentation"],
-    department: "CSD",
+    time: "10:30 - 04:30",
+    venue: "Seminar Hall / Dept. Venues",
+    categories: ["Technical Events"],
+    department: "",
     image: "/event-images/sample.png",
     registrationOpen: true,
-    teamSize: "2 members",
+    teamSize: "2–3 members",
     rules: [
-      "Poster must be A2 or A3 size.",
-      "Content should be clear and neatly presented.",
-      "Explanation time: 2–3 minutes per team."
+      "Prototype or simulation is acceptable",
+      "Architecture explanation is mandatory",
+      "Internet usage depends on organizers",
+      "Plagiarism leads to disqualification"
     ],
     coordinators: []
   },
   {
     id: "7",
-    title: "PPT Presentation (EEE)",
-    description: "",
-    date: "",
+    title: "Bridge Building",
+    description:
+      "Design and construct a model bridge tested for strength and stability.",
+    date: "6th March 2026",
     dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "PPT Presentation"],
-    department: "EEE",
+    time: "10:30 - 04:30",
+    venue: "Seminar Hall / Dept. Venues",
+    categories: ["Technical Events"],
+    department: "CIVIL",
     image: "/event-images/sample.png",
     registrationOpen: true,
     teamSize: "2–4 members",
     rules: [
-      "Choose any relevant EEE topic.",
-      "Presentation time: 8–10 minutes.",
-      "Slides must be original and free of plagiarism.",
-      "Q&A session will follow the presentation."
+      "Only provided materials may be used",
+      "Design must meet size constraints",
+      "Structural testing will be conducted",
+      "Judges’ decision is final"
     ],
     coordinators: []
   },
   {
     id: "8",
-    title: "Poster Presentation (EEE)",
-    description: "",
-    date: "",
+    title: "Logic Gate Master",
+    description:
+      "Test your understanding of logic gates and digital electronics.",
+    date: "6th March 2026",
     dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "Poster Presentation"],
-    department: "EEE",
+    time: "10:30 - 04:30",
+    venue: "Electronics Lab",
+    categories: ["Technical Events"],
+    department: "",
     image: "/event-images/sample.png",
     registrationOpen: true,
-    teamSize: "2 members",
+    teamSize: "Individual",
     rules: [
-      "Poster must be A2 or A3 size.",
-      "Poster content should be neat, clear, and well-presented.",
-      "Explanation time: 2–3 minutes per team."
+      "Mobile phones are not allowed",
+      "Calculators may be restricted",
+      "Multiple rounds may be conducted",
+      "Time limit must be followed"
     ],
     coordinators: []
   },
   {
     id: "9",
-    title: "Project Expo (EEE)",
-    description: "",
-    date: "",
+    title: "Innovation Driven by AI",
+    description:
+      "Paper presentation on AI-driven innovations and future applications.",
+    date: "6th March 2026",
     dateTag: "6 Mar",
-    time: "",
-    venue: "",
+    time: "10:30 - 04:30",
+    venue: "Seminar Hall / Dept. Venues",
+    categories: ["Technical Events", "Paper Presentation"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "2–3 members",
+    rules: [
+      "Original paper submission is mandatory",
+      "Plagiarism leads to disqualification",
+      "12–15 slides allowed",
+      "PPT/PPTX format only",
+      "Report 15 minutes early"
+    ],
+    coordinators: []
+  },
+  {
+    id: "10",
+    title: "Innovations in Mechanical Systems and Designs",
+    description:
+      "Paper presentation on modern advancements in mechanical engineering.",
+    date: "6th March 2026",
+    dateTag: "6 Mar",
+    time: "10:30 - 04:30",
+    venue: "Seminar Hall / Dept. Venues",
+    categories: ["Technical Events", "Paper Presentation"],
+    department: "MECH",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "2–3 members",
+    rules: [
+      "Original paper submission required",
+      "12–15 slides allowed",
+      "Time limit strictly followed",
+      "PPT/PPTX format only"
+    ],
+    coordinators: []
+  },
+  {
+    id: "11",
+    title: "Vision Nexus",
+    description:
+      "Paper presentation on smart, sustainable infrastructure systems.",
+    date: "6th March 2027",
+    dateTag: "6 Mar",
+    time: "10:30 - 04:30",
+    venue: "Seminar Hall / Dept. Venues",
+    categories: ["Technical Events", "Paper Presentation"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "2–3 members",
+    rules: [
+      "Original paper submission mandatory",
+      "12–15 slides allowed",
+      "PPT/PPTX format only",
+      "Report 15 minutes early"
+    ],
+    coordinators: []
+  },
+  {
+    id: "12",
+    title: "IdeaTronix",
+    description:
+      "Paper presentation on AI-driven management and business systems.",
+    date: "6th March 2026",
+    dateTag: "6 Mar",
+    time: "10:30 - 04:30",
+    venue: "Seminar Hall / Dept. Venues",
+    categories: ["Technical Events", "Paper Presentation"],
+    department: "ECE",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "2–3 members",
+    rules: [
+      "Original paper submission mandatory",
+      "12–15 slides allowed",
+      "PPT/PPTX format only",
+      "Judges’ decision is final"
+    ],
+    coordinators: []
+  },
+
+  {
+    id: "13",
+    title: "ElectroNova",
+    description:
+      "A paper presentation event focusing on modern approaches to cyber security and digital protection.",
+    date: "6th March 2026",
+    dateTag: "6 Mar",
+    time: "10:30 - 04:30",
+    venue: "Seminar Hall / Dept. Venues",
+    categories: ["Technical Events", "Paper Presentation"],
+    department: "EEE",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "2–3 members",
+    rules: [
+      "Original paper submission is mandatory",
+      "Plagiarism leads to disqualification",
+      "12–15 slides allowed",
+      "PPT/PPTX format only",
+      "Report 15 minutes early",
+      "Judges’ decision is final"
+    ],
+    coordinators: []
+  },
+  {
+    id: "14",
+    title: "Smart, Sustainable and Energy Efficient Systems",
+    description:
+      "A paper presentation event focused on sustainability, smart systems, and efficient resource utilization.",
+    date: "6th March 2026",
+    dateTag: "6 Mar",
+    time: "10:30 - 04:30",
+    venue: "Seminar Hall / Dept. Venues",
+    categories: ["Technical Events", "Paper Presentation"],
+    department: "CIVIL",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "2–3 members",
+    rules: [
+      "Original paper submission is mandatory",
+      "Plagiarism leads to disqualification",
+      "12–15 slides allowed",
+      "PPT/PPTX format only",
+      "Report 15 minutes early"
+    ],
+    coordinators: []
+  },
+  {
+    id: "15",
+    title: "AI and Future of Management",
+    description:
+      "Explores how artificial intelligence is reshaping modern management and business practices.",
+    date: "6th March 2026",
+    dateTag: "6 Mar",
+    time: "10:30 - 04:30",
+    venue: "Seminar Hall / Dept. Venues",
+    categories: ["Technical Events", "Paper Presentation"],
+    department: "MBA",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "2–3 members",
+    rules: [
+      "Original paper submission is mandatory",
+      "Plagiarism leads to disqualification",
+      "12–15 slides allowed",
+      "PPT/PPTX format only",
+      "Report 15 minutes early"
+    ],
+    coordinators: []
+  },
+  {
+    id: "16",
+    title: "Modern Approaches to Cyber Security",
+    description:
+      "A paper presentation event centered on emerging cyber threats and advanced protection techniques.",
+    date: "6th March 2026",
+    dateTag: "6 Mar",
+    time: "10:30 - 04:30",
+    venue: "Seminar Hall / Dept. Venues",
+    categories: ["Technical Events", "Paper Presentation"],
+    department: "CSC",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "2–3 members",
+    rules: [
+      "Original paper submission is mandatory",
+      "Plagiarism leads to disqualification",
+      "12–15 slides allowed",
+      "PPT/PPTX format only",
+      "Report 15 minutes early",
+      "Judges’ decision is final"
+    ],
+    coordinators: []
+  },
+  {
+    id: "17",
+    title: "Industry Hackathon",
+    description:
+      "A 24-hour continuous innovation challenge simulating real-world industry problem solving.",
+    date: "6th March 2026",
+    dateTag: "6 Mar",
+    time: "10:00 - 10:00 (24 Hours)",
+    venue: "Department Venues",
+    categories: ["Technical Events", "Hackathons"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "4 members",
+    rules: [
+      "24-hour continuous hackathon",
+      "Teams must work only during allotted time",
+      "Solutions must align with given problem statements",
+      "Plagiarism or pre-built solutions are not allowed"
+    ],
+    coordinators: []
+  },
+  {
+    id: "18",
+    title: "Startup Stories",
+    description:
+      "An inspiring session showcasing real-life entrepreneurial journeys and startup experiences.",
+    date: "6th March 2026",
+    dateTag: "6 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Spotlight Events"],
+    department: "MECH",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "4 members",
+    rules: [],
+    coordinators: []
+  },
+  {
+    id: "19",
+    title: "Leadership Talks",
+    description:
+      "An engaging session focused on leadership qualities, personal growth, and professional development.",
+    date: "6th March 2026",
+    dateTag: "6 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Spotlight Events"],
+    department: "EEE",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "2–4 members",
+    rules: [],
+    coordinators: []
+  },
+  {
+    id: "20",
+    title: "Art Gallery",
+    description:
+      "A creative showcase celebrating artistic expression through paintings, sketches, and photography.",
+    date: "6th March 2026",
+    dateTag: "6 Mar",
+    time: "10:00 - 12:30",
+    venue: "Department Venues",
+    categories: ["Cultural Events", "Arts"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "",
+    rules: [
+      "One artwork per student",
+      "Theme: Colours of Imagination",
+      "Participants must bring their own materials",
+      "Artwork must be original and appropriate"
+    ],
+    coordinators: []
+  },
+  {
+    id: "21",
+    title: "Rhythm of One",
+    description:
+      "A high-energy musical event celebrating rhythm, coordination, and creativity.",
+    date: "6th March 2026",
+    dateTag: "6 Mar",
+    time: "10:00 - 12:30",
+    venue: "Department Venues",
+    categories: ["Cultural Events", "Music"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "",
+    rules: [
+      "Only live instruments allowed",
+      "No backing tracks",
+      "Time limit: 3–6 minutes",
+      "Valid college ID required"
+    ],
+    coordinators: []
+  },
+  {
+    id: "22",
+    title: "Echoes of Soul",
+    description:
+      "A soulful music event highlighting emotional expression through voice and melody.",
+    date: "6th March 2026",
+    dateTag: "6 Mar",
+    time: "10:00 - 04:00",
+    venue: "Auditorium Lobby",
+    categories: ["Cultural Events", "Music"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "",
+    rules: [
+      "Solo, duet, or group singing allowed",
+      "No lip-sync or recorded vocals",
+      "Time limit: 3–5 minutes",
+      "Song must be appropriate",
+      "Valid college ID required"
+    ],
+    coordinators: []
+  },
+
+  {
+    id: "23",
+    title: "Laugh Tales",
+    description:
+      "An entertaining event designed to spread joy, humor, and positivity through comedy and storytelling.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Spotlight Events"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "",
+    rules: [
+      "Content must be clean and respectful",
+      "Vulgar or offensive jokes are prohibited",
+      "Performances must stay within the allotted time",
+      "Use of props must be pre-approved",
+      "Judges’ decision will be final"
+    ],
+    coordinators: []
+  },
+  {
+    id: "24",
+    title: "Idea Pitching",
+    description:
+      "An innovation-focused event where participants present unique ideas to solve real-world problems.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Spotlight Events"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "",
+    rules: [],
+    coordinators: []
+  },
+  {
+    id: "25",
+    title: "Youth Summit",
+    description:
+      "A thought-provoking event that brings young minds together to discuss social, technological, and national issues.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Spotlight Events"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "",
+    rules: [
+      "Participants must respect differing opinions",
+      "Topics must align with the summit theme",
+      "Time limits must be strictly followed",
+      "Inappropriate language or behavior is not allowed",
+      "Moderators’ and judges’ decisions are final"
+    ],
+    coordinators: []
+  },
+  {
+    id: "26",
+    title: "Echoes of Sound",
+    description:
+      "A music-focused event celebrating melody, rhythm, and creative sound performances.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Cultural Events", "Music"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "",
+    rules: [],
+    coordinators: []
+  },
+  {
+    id: "27",
+    title: "Battle of Beats",
+    description:
+      "An energetic dance and rhythm competition highlighting coordination, performance, and stage presence.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Cultural Events", "Dance"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "",
+    rules: [],
+    coordinators: []
+  },
+  {
+    id: "28",
+    title: "Tech Short",
+    description:
+      "A fast-paced technical speaking event where participants explain a technical concept within a short duration.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Technical Events"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "Individual",
+    rules: [
+      "Individual participation only",
+      "Topic must be technical in nature",
+      "Time limit must be strictly followed",
+      "Use of notes or mobiles is not allowed",
+      "Judges’ decision will be final"
+    ],
+    coordinators: []
+  },
+  {
+    id: "29",
+    title: "Logic Lock",
+    description:
+      "A brain-teasing technical event that challenges logical and analytical thinking through puzzles.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Technical Events"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "Individual",
+    rules: [
+      "Individual participation only",
+      "Puzzles must be solved sequentially",
+      "No external help is allowed",
+      "Time limit applies for each round",
+      "Judges’ decision will be final"
+    ],
+    coordinators: []
+  },
+  {
+    id: "30",
+    title: "Code Crime Scene",
+    description:
+      "An investigative coding event where participants debug and analyze faulty code.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 05:30",
+    venue: "Department Venues",
+    categories: ["Technical Events"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "Individual or 2 per team",
+    rules: [
+      "Individual or team participation (max 2)",
+      "Code must be debugged within the given time",
+      "Internet usage may be restricted",
+      "Only allowed languages may be used",
+      "Judges’ decision will be final"
+    ],
+    coordinators: []
+  },
+  {
+    id: "31",
+    title: "SQL Query Challenge",
+    description:
+      "A database-focused technical event testing SQL query logic, optimization, and accuracy.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 05:30",
+    venue: "Department Venues",
+    categories: ["Technical Events"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "Individual",
+    rules: [
+      "Individual participation only",
+      "Queries must produce correct output",
+      "Use of external resources is prohibited",
+      "Time limit must be followed",
+      "Judges’ decision will be final"
+    ],
+    coordinators: []
+  },
+  {
+    id: "32",
+    title: "Pic Prompt",
+    description:
+      "A creative technical event where participants build a technical idea inspired by an image prompt.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Technical Events"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "Individual",
+    rules: [
+      "Individual participation only",
+      "Prompt will be given on the spot",
+      "Time limit must be followed",
+      "Explanation must be technical",
+      "Judges’ decision will be final"
+    ],
+    coordinators: []
+  },
+  {
+    id: "33",
+    title: "Memory Meltdown",
+    description:
+      "A fun technical event designed to test memory power, concentration, and observation skills.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Technical Events"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "Individual",
+    rules: [
+      "Individual participation only",
+      "No writing during observation time",
+      "Recall must be done within time limit",
+      "No external help allowed",
+      "Judges’ decision is final"
+    ],
+    coordinators: []
+  },
+
+  {
+    id: "34",
+    title: "Tech Dumb Charades",
+    description:
+      "A technical twist to the classic dumb charades where participants act out technical terms without speaking.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Technical Events"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "2–4 members",
+    rules: [
+      "Team participation (2–4 members)",
+      "No speaking or writing allowed",
+      "Technical terms only",
+      "Time limit per round applies",
+      "Judges’ decision is final"
+    ],
+    coordinators: []
+  },
+  {
+    id: "35",
+    title: "UI / UX Design Sprint",
+    description:
+      "A creative technical event focused on user interface and user experience design.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Technical Events"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "Individual or 2 members",
+    rules: [
+      "Individual or team participation (max 2)",
+      "Tools must be approved by organizers",
+      "Internet usage may be restricted",
+      "Design explanation is mandatory",
+      "Judges’ decision is final"
+    ],
+    coordinators: []
+  },
+  {
+    id: "36",
+    title: "Cube Solving",
+    description:
+      "A skill-based event challenging speed, logic, and problem-solving using Rubik’s cubes.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Technical Events"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "Individual",
+    rules: [
+      "Individual participation only",
+      "Cube must be solved completely",
+      "Time will be recorded accurately",
+      "Tampering with cube is not allowed",
+      "Judges’ decision is final"
+    ],
+    coordinators: []
+  },
+  {
+    id: "37",
+    title: "Agentix",
+    description:
+      "A hackathon focused on building intelligent agents and automated systems.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Technical Events", "Hackathons"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "2–4 members",
+    rules: [
+      "Teams must work only during the official hackathon duration",
+      "Project must be developed during the event",
+      "Internet usage is allowed",
+      "Each team must present the solution",
+      "Judges’ decision will be final"
+    ],
+    coordinators: []
+  },
+  {
+    id: "38",
+    title: "Webverse",
+    description:
+      "A hackathon centered on building innovative web-based solutions using modern technologies.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Technical Events", "Hackathons"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "2–4 members",
+    rules: [
+      "Teams must work only during the official hackathon duration",
+      "Project must be developed during the event",
+      "Internet usage is allowed",
+      "Each team must present the solution",
+      "Judges’ decision will be final"
+    ],
+    coordinators: []
+  },
+  {
+    id: "39",
+    title: "Sensecraft",
+    description:
+      "A hackathon emphasizing smart systems using sensors, data, and intelligent processing.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Technical Events", "Hackathons"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "2–4 members",
+    rules: [
+      "Solution must involve sensors, data, or smart systems",
+      "Simulation or prototype models are acceptable",
+      "Idea should solve a real-world problem",
+      "Teams must explain the working clearly"
+    ],
+    coordinators: []
+  },
+  {
+    id: "40",
+    title: "Designathon",
+    description:
+      "A creativity-driven event focused on mechanical engineering design and innovation.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Technical Events", "Hackathons"],
+    department: "MECH",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "2–4 members",
+    rules: [
+      "Designs must be original and created during the event",
+      "Solution should address the given problem statement",
+      "Teams must submit and explain the design clearly",
+      "Time limits must be strictly followed"
+    ],
+    coordinators: []
+  },
+  {
+    id: "41",
+    title: "Techorbit",
+    description:
+      "A project expo showcasing innovative technology-based projects and prototypes.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Technical Events", "Project Expo"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "2–4 members",
+    rules: [
+      "Projects must be original and student-developed",
+      "Teams must explain the project clearly",
+      "Working models or demos are preferred",
+      "Judges’ decision will be final"
+    ],
+    coordinators: []
+  },
+  {
+    id: "42",
+    title: "SignalSphere",
+    description:
+      "A project expo focusing on electronics, communication, and signal processing systems.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Technical Events", "Project Expo"],
+    department: "",
+    image: "/event-images/sample.png",
+    registrationOpen: true,
+    teamSize: "2–4 members",
+    rules: [
+      "Projects must relate to electronics or communication",
+      "Teams must explain the project clearly",
+      "Working models or demos are preferred",
+      "Judges’ decision will be final"
+    ],
+    coordinators: []
+  },
+  {
+    id: "43",
+    title: "Energex",
+    description:
+      "A project expo centered on electrical systems and energy-based solutions.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
     categories: ["Technical Events", "Project Expo"],
     department: "EEE",
     image: "/event-images/sample.png",
     registrationOpen: true,
     teamSize: "2–4 members",
     rules: [
-      "Projects must include a working model or demonstration.",
-      "Explanation time: 5–7 minutes per team.",
-      "Ensure the project setup is safe for display.",
-      "Judging will be based on innovation, clarity, and execution."
+      "Projects must focus on electrical or energy systems",
+      "Teams must explain the project clearly",
+      "Working models or demos are preferred",
+      "Judges’ decision will be final"
     ],
     coordinators: []
   },
   {
-    id: "10",
-    title: "PPT Presentation (IT)",
-    description: "",
-    date: "",
-    dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "PPT Presentation"],
-    department: "CS-IT",
+    id: "44",
+    title: "Infrasys",
+    description:
+      "A project expo focused on civil engineering and infrastructure systems.",
+    date: "7th March 2026",
+    dateTag: "7 Mar",
+    time: "10:00 - 04:30",
+    venue: "Department Venues",
+    categories: ["Technical Events", "Project Expo"],
+    department: "CIVIL",
     image: "/event-images/sample.png",
     registrationOpen: true,
     teamSize: "2–4 members",
     rules: [
-      "Presentation duration: 8–10 minutes.",
-      "Slides must be original and free from plagiarism.",
-      "Q&A session may follow the presentation."
-    ],
-    coordinators: []
-  },
-  {
-    id: "11",
-    title: "Poster Presentation (IT)",
-    description: "",
-    date: "",
-    dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "Poster Presentation"],
-    department: "CS-IT",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "2 members",
-    rules: [
-      "Poster must be A2 or A3 size.",
-      "Content must be clear, neat, and well-structured.",
-      "Handmade or digital posters are allowed."
-    ],
-    coordinators: []
-  },
-  {
-    id: "12",
-    title: "Reverse Coding (IT)",
-    description: "",
-    date: "",
-    dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events"],
-    department: "CS-IT",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "2 members",
-    rules: [
-      "Decode the given output or logic.",
-      "Write the correct program based on the behavior.",
-      "Strictly no plagiarism or code copying."
+      "Projects must relate to civil or infrastructure systems",
+      "Teams must explain the project clearly",
+      "Working models or demos are preferred",
+      "Judges’ decision will be final"
     ],
     coordinators: []
   },
 
 
-  {
-    id: "13",
-    title: "PPT Presentation (CSM)",
-    description: "",
-    date: "",
-    dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "PPT Presentation"],
-    department: "CSM",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "2–4 members",
-    rules: [
-      "Choose any one topic related to CSM.",
-      "Presentation duration: 8–10 minutes.",
-      "Slides must be original and well-structured.",
-      "Q&A session will follow the presentation."
-    ],
-    coordinators: []
-  },
-  {
-    id: "14",
-    title: "Poster Presentation (CSM)",
-    description: "",
-    date: "",
-    dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "Poster Presentation"],
-    department: "CSM",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "2 members",
-    rules: [
-      "Poster must be A2 or A3 size.",
-      "Content should be clear and neatly presented.",
-      "Explanation time: 2–3 minutes per team."
-    ],
-    coordinators: []
-  },
-  {
-    id: "15",
-    title: "AGENTIX",
-    description: "",
-    date: "",
-    dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "Hackathons"],
-    department: "CSM",
-    image: "/event-images/AGENTIX.jpg",
-    registrationOpen: true,
-    teamSize: "2 members",
-    rules: [
-      "Quiz format will be MCQs based on AI & ML.",
-      "Fastest and most accurate team wins.",
-      "No external help or devices allowed."
-    ],
-    coordinators: []
-  },
-  {
-    id: "16",
-    title: "SENSECRAFT",
-    description: "",
-    date: "",
-    dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "Hackathons"],
-    department: "CSD",
-    image: "/event-images/SENSECRAFT.jpg",
-    registrationOpen: true,
-    teamSize: "2–4 members",
-    rules: [
-      "Presentation duration: 8–10 minutes.",
-      "Slides must be original and clearly presented.",
-      "Q&A session will follow the presentation."
-    ],
-    coordinators: []
-  },
 
+
+
+  
   {
-    id: "17",
-    title: "WEBVERSE",
-    description: "",
-    date: "",
-    dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "Hackathons"],
-    department: "CSD",
-    image: "/event-images/WEBVERSE.jpg",
-    registrationOpen: true,
-    teamSize: "2 members",
-    rules: [
-      "Poster must be A2 or A3 size.",
-      "Content should be neat and well-structured.",
-      "Explanation time: 2–3 minutes."
-    ],
-    coordinators: []
-  },
-  {
-    id: "18",
-    title: "Coding Autometa (CSD)",
-    description: "",
-    date: "",
-    dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events"],
-    department: "CSD",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "2 members",
-    rules: [
-      "MCQ-based coding logic quiz.",
-      "Highest score in the least time wins.",
-      "No external help or plagiarism allowed."
-    ],
-    coordinators: []
-  },
-  {
-    id: "19",
-    title: "PPT Presentation (ECE)",
-    description: "",
-    date: "",
-    dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "PPT Presentation"],
-    department: "ECE",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "2 members",
-    rules: [
-      "Presentation time: 8 minutes followed by Q&A.",
-      "Participants must submit an abstract before the event.",
-      "Bring the PPT on a pen drive for presentation.",
-      "Slides must be original and well-structured."
-    ],
-    coordinators: []
-  },
-  {
-    id: "20",
-    title: "Poster Presentation (ECE)",
-    description: "",
-    date: "",
-    dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "Poster Presentation"],
-    department: "ECE",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "2 members",
-    rules: [
-      "Poster must follow IEEE format.",
-      "Size allowed: A2 or A3.",
-      "Explanation time: 5 minutes per team.",
-      "Content should be clear, technical, and neatly presented."
-    ],
-    coordinators: []
-  },
-  {
-    id: "21",
-    title: "Project Expo (ECE)",
-    description: "",
-    date: "",
-    dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "Project Expo"],
-    department: "ECE",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "4 members",
-    rules: [
-      "Project must include a working model or live demonstration.",
-      "A PPT explaining the project is mandatory.",
-      "Components used must be safe and well-insulated.",
-      "Evaluation is based on innovation, clarity, and execution."
-    ],
-    coordinators: []
-  },
-  {
-    id: "22",
-    title: "PPT Presentation (Civil)",
-    description: "",
-    date: "",
-    dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "PPT Presentation"],
-    department: "CIVIL",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "2 members",
-    rules: [
-      "Presentation time: 8 minutes followed by Q&A.",
-      "Submit abstract prior to the event.",
-      "Slides must be original and well-organized."
-    ],
-    coordinators: []
-  },
-  {
-    id: "23",
-    title: "Poster Presentation (Civil)",
-    description: "",
-    date: "",
-    dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "Poster Presentation"],
-    department: "CIVIL",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "2 members",
-    rules: [
-      "Poster must follow IEEE format.",
-      "Size allowed: A2 or A3.",
-      "Explanation time: 5 minutes per team.",
-      "Content must be neat and clear."
-    ],
-    coordinators: []
-  },
-  {
-    id: "24",
-    title: "Project Expo (Civil)",
-    description: "",
-    date: "",
-    dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "Project Expo"],
-    department: "CIVIL",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "4 members",
-    rules: [
-      "Project must include a working model.",
-      "PPT describing the project is mandatory.",
-      "Judging based on innovation and clarity."
-    ],
-    coordinators: []
-  },
-  {
-    id: "25",
-    title: "PPT Presentation (Mech)",
-    description: "",
-    date: "",
-    dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "PPT Presentation"],
-    department: "MECH",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "2 members",
-    rules: [
-      "Presentation time: 8 minutes + Q&A.",
-      "Abstract submission is mandatory.",
-      "Slides must be original and technical."
-    ],
-    coordinators: []
-  },
-  {
-    id: "26",
-    title: "Poster Presentation (Mech)",
-    description: "",
-    date: "",
-    dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "Poster Presentation"],
-    department: "MECH",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "2 members",
-    rules: [
-      "Poster must follow IEEE guidelines.",
-      "Content must be clear and neatly presented.",
-      "Technical accuracy is required."
-    ],
-    coordinators: []
-  },
-  {
-    id: "27",
-    title: "Project Expo (Mech)",
-    description: "",
-    date: "",
-    dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events", "Project Expo"],
-    department: "MECH",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "4 members",
-    rules: [
-      "Project must include a working physical model.",
-      "PPT describing the project is required.",
-      "Safety measures must be ensured."
-    ],
-    coordinators: []
-  },
-  {
-    id: "28",
-    title: "Designathon (Mech)",
-    description: "",
-    date: "",
-    dateTag: "6 Mar",
-    time: "",
-    venue: "",
-    categories: ["Technical Events"],
-    department: "MECH",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "1–3 members",
-    rules: [
-      "On-spot design challenge will be given.",
-      "Work must be original and self-created.",
-      "Judges' decision will be final."
-    ],
-    coordinators: []
-  },
-  {
-    id: "29",
-    title: "Battle of Beats",
-    description: "",
-    date: "",
-    dateTag: "7 Mar",
-    time: "",
-    venue: "",
-    categories: ["Cultural Contests", "Dance"],
-    department: "",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "5–12 members",
-    rules: [
-      "Performance time: 4–5 minutes.",
-      "Music must be submitted in advance.",
-      "Props allowed only with prior approval and must be safe."
-    ],
-    coordinators: []
-  },
-  {
-    id: "30",
-    title: "Rhythm of One",
-    description: "",
-    date: "",
-    dateTag: "7 Mar",
-    time: "",
-    venue: "",
-    categories: ["Cultural Contests", "Dance"],
-    department: "",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "",
-    rules: [
-      "Solo dance; one entry per participant.",
-      "Valid college ID required during registration.",
-      "Performance time: 2–3 minutes.",
-      "Music must be submitted in advance.",
-      "Props allowed only with prior approval."
-    ],
-    coordinators: []
-  },
-  {
-    id: "31",
-    title: "Art Gallery",
-    description: "",
-    date: "",
-    dateTag: "7 Mar",
-    time: "",
-    venue: "",
-    categories: ["Cultural Contests", "Arts"],
-    department: "",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "",
-    rules: [
-      "One artwork per student.",
-      "Theme: Colours of Imagination.",
-      "Student must bring their own materials.",
-      "Artwork must be original and appropriate."
-    ],
-    coordinators: []
-  },
-  {
-    id: "32",
-    title: "Echoes of Soul",
-    description: "",
-    date: "",
-    dateTag: "7 Mar",
-    time: "",
-    venue: "",
-    categories: ["Cultural Contests", "Music"],
-    department: "",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "",
-    rules: [
-      "Solo, duet, or group singing allowed.",
-      "No lip-sync or recorded vocals.",
-      "Time limit: 3–5 minutes.",
-      "Song must be appropriate.",
-      "Valid college ID required."
-    ],
-    coordinators: []
-  },
-  {
-    id: "33",
-    title: "Echoes of Sound",
-    description: "",
-    date: "",
-    dateTag: "7 Mar",
-    time: "",
-    venue: "",
-    categories: ["Cultural Contests", "Music"],
-    department: "",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "",
-    rules: [
-      "Only live instruments; no backing tracks.",
-      "One entry per participant or band.",
-      "Time limit: 3–6 minutes.",
-      "Valid college ID required."
-    ],
-    coordinators: []
-  },
-  {
-    id: "34",
-    title: "Laugh Tales",
-    description: "",
-    date: "",
-    dateTag: "7 Mar",
-    time: "",
-    venue: "",
-    categories: ["Cultural Contests"],
-    department: "",
-    image: "/event-images/sample.png",
-    registrationOpen: true,
-    teamSize: "",
-    rules: [
-      "Solo comedy performance only.",
-      "Time limit: 3–5 minutes.",
-      "Languages: English, Hindi, or Telugu.",
-      "Content must be clean and original."
-    ],
-    coordinators: []
-  },
-  {
-    id: "35",
+    id: "45",
     title: "Cricket Men",
     description: "",
     date: "",
@@ -806,7 +1079,7 @@ export const events: Event[] = [
     coordinators: []
   },
   {
-    id: "36",
+    id: "46",
     title: "Kabaddi Men",
     description: "",
     date: "",
@@ -829,7 +1102,7 @@ export const events: Event[] = [
     coordinators: []
   },
   {
-    id: "37",
+    id: "47",
     title: "Volleyball Men",
     description: "",
     date: "",
@@ -851,7 +1124,7 @@ export const events: Event[] = [
     coordinators: []
   },
   {
-    id: "38",
+    id: "48",
     title: "Chess Men",
     description: "",
     date: "",
@@ -873,7 +1146,7 @@ export const events: Event[] = [
     coordinators: []
   },
   {
-    id: "39",
+    id: "49",
     title: "Carroms Men",
     description: "",
     date: "",
@@ -894,7 +1167,7 @@ export const events: Event[] = [
     coordinators: []
   },
   {
-    id: "40",
+    id: "50",
     title: "Table Tennis Men",
     description: "",
     date: "",
@@ -916,7 +1189,7 @@ export const events: Event[] = [
     coordinators: []
   },
   {
-    id: "41",
+    id: "51",
     title: "Handball Men",
     description: "",
     date: "",
@@ -938,7 +1211,7 @@ export const events: Event[] = [
     coordinators: []
   },
   {
-    id: "42",
+    id: "52",
     title: "Throwball Women",
     description: "",
     date: "",
@@ -959,7 +1232,7 @@ export const events: Event[] = [
     coordinators: []
   },
   {
-    id: "43",
+    id: "53",
     title: "Kabaddi Women",
     description: "",
     date: "",
@@ -981,7 +1254,7 @@ export const events: Event[] = [
     coordinators: []
   },
   {
-    id: "44",
+    id: "54",
     title: "Volleyball Women",
     description: "",
     date: "",
@@ -1001,7 +1274,7 @@ export const events: Event[] = [
     coordinators: []
   },
   {
-    id: "45",
+    id: "55",
     title: "Chess Women",
     description: "",
     date: "",
@@ -1021,7 +1294,7 @@ export const events: Event[] = [
     coordinators: []
   },
   {
-    id: "46",
+    id: "56",
     title: "Carroms Women",
     description: "",
     date: "",
@@ -1041,7 +1314,7 @@ export const events: Event[] = [
     coordinators: []
   },
   {
-    id: "47",
+    id: "57",
     title: "Tennikoit Women",
     description: "",
     date: "",

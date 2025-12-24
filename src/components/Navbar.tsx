@@ -99,7 +99,7 @@ const Navbar = () => {
 
   const eventCategories = [
     { name: "Technical Events", id: "Technical Events" },
-    { name: "Cultural Events", id: "Cultural Contests" }, // Mapping "Cultural Events" to "Cultural Contests"
+    { name: "Cultural Events", id: "Cultural Events" }, // Fixed: Must match category name in events.ts
     { name: "Sports", id: "Sports" },
     { name: "Hackathons", id: "Hackathons" },
   ];

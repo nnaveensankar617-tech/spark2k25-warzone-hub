@@ -105,7 +105,7 @@ const PillNav: React.FC<PillNavProps> = ({
     window.addEventListener('resize', onResize);
 
     if (document.fonts) {
-      document.fonts.ready.then(layout).catch(() => {});
+      document.fonts.ready.then(layout).catch(() => { });
     }
 
     const menu = mobileMenuRef.current;
@@ -246,34 +246,35 @@ const PillNav: React.FC<PillNavProps> = ({
   } as React.CSSProperties;
 
   return (
-  <div className="fixed top-0 left-0 w-screen z-[1000]">
-    {/* FULL WIDTH BLACK BAR */}
-    <nav
-      className="w-screen h-[72px] flex items-center px-6"
-      style={{
-        background: '#01102bff',
-        ...cssVars
-      }}
-    >
+    <div className="fixed top-0 left-0 w-screen z-[1000]">
+      {/* FULL WIDTH BLACK BAR */}
+      <nav
+        className="w-screen h-[72px] flex items-center px-6"
+        style={{
+          background: '#01102bff',
+          ...cssVars
+        }}
+      >
 
-    {isRouterLink(items?.[0]?.href) ? (
-  <Link
-  to={items[0].href}
-  aria-label="Home"
-  onMouseEnter={handleLogoEnter}
-  role="menuitem"
-  ref={el => {
-    logoRef.current = el;
-  }}
-  className="flex items-center justify-center"
->
-  {/* <img
+        {isRouterLink(items?.[0]?.href) ? (
+          <Link
+            to={items[0].href}
+            aria-label="Home"
+            onMouseEnter={handleLogoEnter}
+            role="menuitem"
+            ref={el => {
+              logoRef.current = el;
+            }}
+            onClick={() => window.scrollTo(0, 0)}
+            className="flex items-center justify-center"
+          >
+            {/* <img
     src="logo"
     alt={logoAlt}
     ref={logoImgRef}
     className="w-10 h-10 rounded-full object-cover"
   /> */}
-</Link>
+          </Link>
 
 
         ) : (
@@ -295,108 +296,109 @@ const PillNav: React.FC<PillNavProps> = ({
           </a>
         )}
 
-  <div className="flex items-center ml-auto">
-  <div
-    ref={navItemsRef}
-    className="relative hidden md:flex items-center rounded-full"
-    style={{
-      height: 'var(--nav-h)',
-      background: 'var(--base)',
-      padding: '3px'
-    }}
-  >
-
-          <ul
-            role="menubar"
-            className="list-none flex items-stretch m-0 p-[3px] h-full"
-            style={{ gap: 'var(--pill-gap)' }}
+        <div className="flex items-center ml-auto">
+          <div
+            ref={navItemsRef}
+            className="relative hidden md:flex items-center rounded-full"
+            style={{
+              height: 'var(--nav-h)',
+              background: 'var(--base)',
+              padding: '3px'
+            }}
           >
-            {items.map((item, i) => {
-              const isActive = activeHref === item.href;
 
-              const pillStyle: React.CSSProperties = {
-                background: 'var(--pill-bg, #fff)',
-                color: 'var(--pill-text, var(--base, #000000ff))',
-                paddingLeft: 'var(--pill-pad-x)',
-                paddingRight: 'var(--pill-pad-x)'
-              };
+            <ul
+              role="menubar"
+              className="list-none flex items-stretch m-0 p-[3px] h-full"
+              style={{ gap: 'var(--pill-gap)' }}
+            >
+              {items.map((item, i) => {
+                const isActive = activeHref === item.href;
 
-              const PillContent = (
-                <>
-                  <span
-                    className="hover-circle absolute left-1/2 bottom-1 rounded-full z-[1] block pointer-events-none"
-                    style={{
-                      background: 'var(--base, #020202ff)',
-                      willChange: 'transform'
-                    }}
-                    aria-hidden="true"
-                    ref={el => {
-                      circleRefs.current[i] = el;
-                    }}
-                  />
-                  <span className="label-stack relative inline-block leading-[1] z-[2]">
+                const pillStyle: React.CSSProperties = {
+                  background: 'var(--pill-bg, #fff)',
+                  color: 'var(--pill-text, var(--base, #000000ff))',
+                  paddingLeft: 'var(--pill-pad-x)',
+                  paddingRight: 'var(--pill-pad-x)'
+                };
+
+                const PillContent = (
+                  <>
                     <span
-                      className="pill-label relative z-[2] inline-block leading-[1]"
-                      style={{ willChange: 'transform' }}
-                    >
-                      {item.label}
-                    </span>
-                    <span
-                      className="pill-label-hover absolute left-0 top-0 z-[3] inline-block"
+                      className="hover-circle absolute left-1/2 bottom-1 rounded-full z-[1] block pointer-events-none"
                       style={{
-                        color: 'var(--hover-text, #fff)',
-                        willChange: 'transform, opacity'
+                        background: 'var(--base, #020202ff)',
+                        willChange: 'transform'
                       }}
                       aria-hidden="true"
-                    >
-                      {item.label}
-                    </span>
-                  </span>
-                  {isActive && (
-                    <span
-                      className="absolute left-1/2 -bottom-[6px] -translate-x-1/2 w-3 h-3 rounded-full z-[4]"
-                      style={{ background: 'var(--base, #000)' }}
-                      aria-hidden="true"
+                      ref={el => {
+                        circleRefs.current[i] = el;
+                      }}
                     />
-                  )}
-                </>
-              );
+                    <span className="label-stack relative inline-block leading-[1] z-[2]">
+                      <span
+                        className="pill-label relative z-[2] inline-block leading-[1]"
+                        style={{ willChange: 'transform' }}
+                      >
+                        {item.label}
+                      </span>
+                      <span
+                        className="pill-label-hover absolute left-0 top-0 z-[3] inline-block"
+                        style={{
+                          color: 'var(--hover-text, #fff)',
+                          willChange: 'transform, opacity'
+                        }}
+                        aria-hidden="true"
+                      >
+                        {item.label}
+                      </span>
+                    </span>
+                    {isActive && (
+                      <span
+                        className="absolute left-1/2 -bottom-[6px] -translate-x-1/2 w-3 h-3 rounded-full z-[4]"
+                        style={{ background: 'var(--base, #000)' }}
+                        aria-hidden="true"
+                      />
+                    )}
+                  </>
+                );
 
-              const basePillClasses =
-                'relative overflow-hidden inline-flex items-center justify-center h-full no-underline rounded-full box-border font-semibold text-[16px] leading-[0] uppercase tracking-[0.2px] whitespace-nowrap cursor-pointer px-4';
+                const basePillClasses =
+                  'relative overflow-hidden inline-flex items-center justify-center h-full no-underline rounded-full box-border font-semibold text-[16px] leading-[0] uppercase tracking-[0.2px] whitespace-nowrap cursor-pointer px-4';
 
-              return (
-                <li key={item.href} role="none" className="flex h-full">
-                  {isRouterLink(item.href) ? (
-                    <Link
-                      role="menuitem"
-                      to={item.href}
-                      className={basePillClasses}
-                      style={pillStyle}
-                      aria-label={item.ariaLabel || item.label}
-                      onMouseEnter={() => handleEnter(i)}
-                      onMouseLeave={() => handleLeave(i)}
-                    >
-                      {PillContent}
-                    </Link>
-                  ) : (
-                    <a
-                      role="menuitem"
-                      href={item.href}
-                      className={basePillClasses}
-                      style={pillStyle}
-                      aria-label={item.ariaLabel || item.label}
-                      onMouseEnter={() => handleEnter(i)}
-                      onMouseLeave={() => handleLeave(i)}
-                    >
-                      {PillContent}
-                    </a>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+                return (
+                  <li key={item.href} role="none" className="flex h-full">
+                    {isRouterLink(item.href) ? (
+                      <Link
+                        role="menuitem"
+                        to={item.href}
+                        className={basePillClasses}
+                        style={pillStyle}
+                        aria-label={item.ariaLabel || item.label}
+                        onMouseEnter={() => handleEnter(i)}
+                        onMouseLeave={() => handleLeave(i)}
+                        onClick={() => window.scrollTo(0, 0)}
+                      >
+                        {PillContent}
+                      </Link>
+                    ) : (
+                      <a
+                        role="menuitem"
+                        href={item.href}
+                        className={basePillClasses}
+                        style={pillStyle}
+                        aria-label={item.ariaLabel || item.label}
+                        onMouseEnter={() => handleEnter(i)}
+                        onMouseLeave={() => handleLeave(i)}
+                      >
+                        {PillContent}
+                      </a>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
 
         <button
@@ -457,7 +459,10 @@ const PillNav: React.FC<PillNavProps> = ({
                     style={defaultStyle}
                     onMouseEnter={hoverIn}
                     onMouseLeave={hoverOut}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      window.scrollTo(0, 0);
+                    }}
                   >
                     {item.label}
                   </Link>
