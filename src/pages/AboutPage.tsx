@@ -80,7 +80,7 @@ const AboutPage = () => {
       <Navbar />
 
       {/* --- HERO SECTION (SAARANG STYLE) --- */}
-      <section className="relative h-screen flex flex-col justify-center overflow-hidden font-sans">
+      <section className="relative min-h-screen md:h-screen flex flex-col justify-center overflow-hidden font-sans pt-24 md:pt-0">
         {/* Massive Background Text - Watermark */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 select-none">
           <span className="text-[25vw] font-black text-[#1a1a1a] opacity-60 tracking-tighter leading-none whitespace-nowrap blur-sm">
@@ -128,7 +128,7 @@ const AboutPage = () => {
                 <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-primary" />
 
                 <p className="text-zinc-300 font-exo text-sm md:text-base leading-relaxed text-justify uppercase tracking-wide">
-                  <Shinky text="SPARK 2026 is all set to ignite SVCE Tirupati with a vibrant blend of technology, culture, and sports. Students from across the nation will gather to showcase their talents, compete in exciting challenges, and experience an atmosphere buzzing with innovation. This year’s spotlight events include the inspiring Youth Summit." />
+                  <Shinky text="SPARK is the beating heart of SVCE — an Inter-College Techno-Cultural Sports Event bringing together 10,000+ students from 50+ colleges. Filled with sports, culture, and excitement, SPARK features thrilling competitions, electrifying music, powerful drama, and high-energy dance battles. Organized by SVCE students and held every March, the campus transforms into a vibrant hub of talent and celebration. End each day vibing with friends at mega celebrity performances — an unforgettable experience awaits! 🔥" />
                 </p>
 
                 <div className="mt-6 flex justify-end">
