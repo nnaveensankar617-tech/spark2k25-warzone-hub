@@ -5,6 +5,8 @@ import FireParticles from "@/components/FireParticles";
 import Shinky from "@/components/ui/ShinyText";
 import sparkLogo from "@/assets/spark-logo.png";
 import { TimelineDemo } from "@/components/ui/TimelineDemo";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
+import { Card, CardContent } from "@/components/ui/card";
 
 const AboutPage = () => {
   const stats = [
@@ -101,14 +103,7 @@ const AboutPage = () => {
                 </span>
 
                 {/* Secondary Heading: SPARK 2026 */}
-                <div className="mt-8 flex items-baseline gap-4">
-                  <span className="text-3xl md:text-5xl font-bold font-orbitron text-white tracking-widest">
-                    SPARK
-                  </span>
-                  <span className="text-3xl md:text-5xl font-serif italic text-white/50">
-                    2026
-                  </span>
-                </div>
+
               </h1>
             </div>
 
@@ -171,204 +166,136 @@ const AboutPage = () => {
       </div>
 
 
-      {/* --- CORE VALUES GRID --- */}
+      {/* --- ABOUT SVCE SECTION --- */}
+      <section className="py-24 relative overflow-hidden bg-black/40">
+        <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
+          <h1 className="text-[15rem] font-black text-white leading-none">SVCE</h1>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+
+            {/* Left: Content */}
+            <div className="lg:w-3/5">
+              <RevealOnScroll>
+                <div className="inline-block px-3 py-1 mb-6 border border-primary/30 rounded-full bg-primary/10">
+                  <span className="text-primary text-xs font-bold tracking-[0.2em] uppercase">Trusted Legacy</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-black font-orbitron mb-8 text-white">
+                  ABOUT <span className="text-primary">SVCE</span>
+                </h2>
+
+                <div className="space-y-6 text-zinc-400 font-exo text-lg leading-relaxed text-justify">
+                  <p>
+                    The SV COLLEGES group was founded in 1981, based on the firm belief that education, especially higher education, provides a critical pathway to leadership development, economic progress, and social and political equality. We are committed to excellence in our student's career by providing the best in education, training, and the skills necessary to become future leaders. We train our students with interpersonal and communication skills needed to thrive in the world beyond the campus.
+                  </p>
+                  <p>
+                    SV College of Engineering (SVCE) was established in 2007 with a vision to offer superior educational programs, supported by exceptional service. The college is affiliated with JNTUA and approved by AICTE, New Delhi. The group offers UG Courses (CE, CSE, ECE, EEE, CSM, CSD, CSC, IT & ME) and PG Courses (VLSID, CS, MCA & MBA). Several programs are accredited by NBA, and SVCE is NAAC accredited with Grade ‘A’ and has autonomous status until 2030. In the 2024 NIRF rankings, SVCE is within the 201–300 band. The campus features state-of-the-art laboratories, classrooms with LCD projectors, and a well-stocked library.
+                  </p>
+                </div>
+              </RevealOnScroll>
+            </div>
+
+            {/* Right: Feature Card */}
+            <div className="lg:w-2/5 w-full">
+              <RevealOnScroll>
+                <Card className="bg-zinc-900/50 border-white/10 backdrop-blur-sm overflow-hidden group hover:border-primary/50 transition-colors duration-500">
+                  <CardContent className="p-8 relative">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110" />
+
+                    <div className="grid grid-cols-1 gap-6 relative z-10">
+                      <div className="space-y-2 border-b border-white/5 pb-6">
+                        <p className="text-sm font-bold text-zinc-500 uppercase tracking-widest">Established</p>
+                        <p className="text-4xl font-black font-orbitron text-white">1981</p>
+                        <p className="text-xs text-primary font-mono">// FOUNDATION YEAR</p>
+                      </div>
+
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between">
+                          <span className="text-zinc-400 font-bold uppercase">Accreditation</span>
+                          <span className="px-3 py-1 bg-green-500/20 text-green-400 text-xs font-bold rounded border border-green-500/30">NAAC 'A' GRADE</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-zinc-400 font-bold uppercase">Status</span>
+                          <span className="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-bold rounded border border-blue-500/30">AUTONOMOUS</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-zinc-400 font-bold uppercase">NIRF Rank</span>
+                          <span className="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-bold rounded border border-purple-500/30">201 - 300</span>
+                        </div>
+                      </div>
+
+                      <div className="pt-6 mt-2">
+                        <p className="text-sm text-zinc-500 mb-4 font-mono">OFFERING COURSES IN</p>
+                        <div className="flex flex-wrap gap-2">
+                          {["CSE", "ECE", "EEE", "IT", "ME", "CSM", "CSD", "CE"].map((course) => (
+                            <span key={course} className="text-[10px] font-bold px-2 py-1 bg-white/5 text-zinc-300 border border-white/5 rounded hover:bg-white/10 transition-colors">
+                              {course}
+                            </span>
+                          ))}
+                          <span className="text-[10px] font-bold px-2 py-1 bg-primary/20 text-primary border border-primary/20 rounded">
+                            + PG COURSES
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </RevealOnScroll>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      {/* --- RULES & REGULATIONS --- */}
       <section className="py-32 relative">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 border border-red-500/30 rounded-full bg-red-500/10">
+                <Shield className="w-3 h-3 text-red-500" />
+                <span className="text-red-500 text-xs font-bold tracking-[0.2em] uppercase">Strict Compliance</span>
+              </div>
               <h2 className="text-4xl md:text-6xl font-black font-orbitron mb-4">
-                CORE <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">PROTOCOLS</span>
+                RULES & <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">REGULATIONS</span>
               </h2>
-              <p className="text-zinc-500 max-w-md">Our operating principles for maximum impact.</p>
+              <p className="text-zinc-500 max-w-md">Official directives for all authorized personnel. Non-compliance results in immediate action.</p>
             </div>
             <div className="h-px bg-white/10 flex-1 ml-8 mb-4 hidden md:block" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {coreValues.map((item, i) => (
-              <div key={i} className={`group p-8 border border-white/5 bg-zinc-900/20 hover:bg-black/40 transition-all duration-500 ${item.border}`}>
-                <div className="mb-8 p-4 bg-white/5 w-fit rounded-lg group-hover:scale-110 transition-transform duration-500">
-                  <item.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className={`text-2xl font-bold font-orbitron mb-4 text-zinc-300 ${item.color} transition-colors duration-300`}>
-                  {item.title}
-                </h3>
-                <p className="text-zinc-500 font-exo leading-relaxed group-hover:text-zinc-400 transition-colors">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+          <div className="bg-zinc-900/30 border border-white/5 p-8 md:p-12 rounded-2xl relative overflow-hidden">
+            {/* Decorative Background */}
+            <div className="absolute top-0 right-0 p-32 bg-red-500/5 blur-[100px] pointer-events-none" />
 
-
-      {/* --- POPULAR EVENTS --- */}
-      <section className="py-32 relative overflow-hidden bg-[#0a0a0a]">
-        {/* Background Watermark */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0">
-          <span className="text-[12vw] font-black text-red-900/10 tracking-tighter whitespace-nowrap blur-sm rotate-90 md:rotate-0">
-            POPULAR EVENTS
-          </span>
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          {/* Header */}
-          <div className="flex justify-between items-end mb-16 border-b border-primary/20 pb-4">
-            <h2 className="text-4xl md:text-5xl font-black font-orbitron uppercase tracking-tighter">
-              POPULAR <span className="text-primary text-glow-red">EVENTS</span>
-            </h2>
-            <span className="hidden md:block text-2xl font-serif italic text-white/50">
-              SPARK '26
-            </span>
-          </div>
-
-          {/* Grid Layout - Bento/Masonry Style (3x2 on Desktop) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[300px] lg:grid-rows-[350px_350px] gap-6">
-
-            {/* [1] HACKATHON: Top Left (1x1) */}
-            <div className="group relative border border-primary/30 overflow-hidden cursor-pointer bg-black/50">
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
-              <img src="/event-images/sample.png" alt="Hackathon" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90" />
-
-              <div className="absolute bottom-0 left-0 p-6 z-20">
-                <span className="inline-block px-2 py-1 bg-primary text-black text-xs font-bold tracking-widest uppercase mb-2">
-                  FLAGSHIP
-                </span>
-                <h3 className="text-3xl font-black font-orbitron text-white leading-none mb-1">
-                  HACKATHON
-                </h3>
-                <p className="text-zinc-400 text-sm font-mono uppercase tracking-wide">
-                  24 HOURS OF CODE
-                </p>
-              </div>
-            </div>
-
-            {/* [2] ROBO WARS: Top Center (1x1) - Split Style */}
-            <div className="group border border-white/10 overflow-hidden cursor-pointer flex flex-col">
-              <div className="h-1/2 overflow-hidden relative">
-                <img src="/event-images/sample.png" alt="Robo Wars" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
-              </div>
-              <div className="h-1/2 bg-zinc-900 group-hover:bg-zinc-800 transition-colors text-white p-6 flex flex-col justify-center relative border-t border-white/5">
-                <div className="absolute top-0 right-0 w-8 h-8 bg-primary text-black flex items-center justify-center font-bold font-mono">
-                  01
-                </div>
-                <h3 className="text-2xl font-black font-orbitron mb-2 uppercase text-primary">
-                  ROBO WARS
-                </h3>
-                <p className="text-sm font-bold text-zinc-400 leading-tight">
-                  THE ULTIMATE CLASH OF METAL AND CIRCUITRY.
-                </p>
-              </div>
-            </div>
-
-            {/* [3] BATTLE OF BANDS: Right Column (1x2) - Tall */}
-            <div className="group border border-primary/30 overflow-hidden cursor-pointer lg:row-span-2 flex flex-col lg:col-start-3">
-              <div className="h-[60%] lg:h-[70%] overflow-hidden relative">
-                <img src="/event-images/sample.png" alt="Band" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute top-4 left-4 bg-black/80 backdrop-blur text-white text-xs font-bold px-3 py-1 border border-white/20">
-                  CULTURAL
-                </div>
-              </div>
-              <div className="h-[40%] lg:h-[30%] bg-primary/10 border-t border-primary/30 text-white p-6 flex flex-col justify-between group-hover:bg-primary/20 transition-colors">
-                <div>
-                  <h3 className="text-3xl font-black font-orbitron mb-2 uppercase leading-none text-white">
-                    BATTLE OF BANDS
-                  </h3>
-                  <p className="text-sm text-primary font-bold mt-2">
-                    LIVE MUSIC • 5 JUDGES • 1 STAGE
-                  </p>
-                </div>
-                <span className="text-5xl font-serif italic text-white/10 self-end">
-                  '26
-                </span>
-              </div>
-            </div>
-
-            {/* [4] GAMING ARENA: Bottom Left (2x1) - Wide */}
-            <div className="group relative border border-white/10 overflow-hidden cursor-pointer lg:col-span-2 lg:row-start-2">
-              <img src="/event-images/sample.png" alt="Gaming" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
-              <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent opacity-90" />
-
-              <div className="absolute bottom-0 left-0 p-8 z-20 max-w-lg">
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-xs font-bold text-green-400 tracking-widest uppercase">REGISTRATIONS LIVE</span>
-                </div>
-                <h3 className="text-4xl font-black font-orbitron text-white uppercase mb-2">
-                  GAMING ARENA
-                </h3>
-                <p className="text-zinc-300 text-sm font-exo">
-                  Experience next-gen VR and competitive e-sports tournaments (Valorant, CS2, FIFA) with massive prize pools. Join the warzone.
-                </p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-
-      {/* --- HIGHLIGHTS REVEAL --- */}
-      <section className="py-20 relative overflow-hidden">
-        {/* Slanted Background */}
-        <div className="absolute inset-0 transform -skew-y-3 bg-zinc-900/30 origin-top-left -z-10 scale-110 border-y border-white/5" />
-
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <h2 className="text-4xl md:text-5xl font-black font-orbitron leading-tight">
-                WHY CHOOSE <br />
-                <span className="text-primary drop-shadow-[0_0_15px_rgba(var(--primary),0.6)]">THE WARZONE?</span>
-              </h2>
-              <p className="text-lg text-zinc-400 font-exo leading-relaxed">
-                Prepare for an experience that transcends the ordinary. We don't just host events; we forge legends.
-                Every moment is calibrated for maximum intensity.
-              </p>
-              <div className="flex gap-4">
-                <div className="flex items-center gap-2 text-sm font-bold text-white/50 bg-white/5 px-4 py-2 rounded-full border border-white/10">
-                  <Shield className="w-4 h-4 text-primary" /> SECURED
-                </div>
-                <div className="flex items-center gap-2 text-sm font-bold text-white/50 bg-white/5 px-4 py-2 rounded-full border border-white/10">
-                  <Globe className="w-4 h-4 text-cyan-400" /> GLOBAL
-                </div>
-              </div>
-            </div>
-
-            <div className="grid gap-4">
-              {highlights.map((item, i) => (
-                <div key={i} className="group relative p-6 bg-black/60 border border-white/10 hover:border-primary/50 transition-all duration-300 overflow-hidden">
-                  <div className={`absolute inset-0 bg-gradient-to-r ${item.bg} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                  <div className="relative z-10 flex items-center gap-4">
-                    <div className="p-3 bg-white/5 rounded-full group-hover:bg-primary/20 transition-colors duration-300">
-                      <item.icon className="w-6 h-6 text-white group-hover:text-primary transition-colors" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-bold font-orbitron text-white group-hover:translate-x-2 transition-transform duration-300">{item.title}</h4>
-                      <p className="text-sm text-zinc-500 group-hover:text-zinc-300 transition-colors mt-1">{item.desc}</p>
-                    </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 relative z-10">
+              {[
+                "On Event Day, students can enter the campus from 9.00 AM to 11.00 AM. No Entry will be allowed thereafter.",
+                "Once inside the campus, students must remain until the program concludes.",
+                "In any circumstances, the entry amount is Non-Refundable.",
+                "Strict legal measures will be taken against violators identified by the Discipline Committee. The entire event will be recorded via video coverage and CCTV cameras.",
+                "Continuous supervision of students will be carried out by staff, security personnel, and the police.",
+                "Two-wheeler riders are urged to prioritize safety by avoiding triple riding and speeding.",
+                "Outside food items, bags, and soft drinks are not allowed on campus.",
+                "In emergency situations do follow instructions given through public address system.",
+                "Student(s) involved in damage to college property will be fined heavily.",
+                "Student(s) are required to wear either casual or formal attire.",
+                "Student(s) identified with misconduct/notorious/drunken/ involving in physical altercation will be suspended and sent out. If necessary, they will be handed over to police department.",
+                "Maintain a positive and healthy environment throughout the event should support for frisking at any point of time."
+              ].map((rule, i) => (
+                <div key={i} className="flex gap-4 items-start group">
+                  <div className="mt-1 min-w-[24px] h-6 flex items-center justify-center rounded bg-white/5 border border-white/10 group-hover:border-red-500/50 group-hover:bg-red-500/10 transition-colors">
+                    <span className="text-[10px] font-bold text-zinc-500 group-hover:text-red-500">{i + 1}</span>
                   </div>
+                  <p className="text-zinc-400 text-sm leading-relaxed group-hover:text-zinc-300 transition-colors">
+                    {rule}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* --- TIMELINE --- */}
-      <section className="py-16 relative">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-orbitron font-bold mb-4">
-              Event <span className="text-secondary text-glow-cyan">Timeline</span>
-            </h2>
-            <p className="text-muted-foreground font-exo max-w-2xl mx-auto">
-              A journey through the evolution and milestones of SPARK
-            </p>
-          </div>
-
-          <TimelineDemo />
         </div>
       </section>
 

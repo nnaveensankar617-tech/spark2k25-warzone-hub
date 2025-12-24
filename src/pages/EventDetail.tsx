@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
   Calendar,
@@ -27,6 +27,7 @@ const categoryColors: Record<string, string> = {
 
 export default function EventDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const event = events.find((e) => e.id === id);
 
   if (!event) {
@@ -91,15 +92,14 @@ export default function EventDetail() {
 
 
             {/* Back Button */}
-            <Link to="/" className="inline-block">
-              <Button
-                variant="ghost"
-                className="text-zinc-400 hover:text-primary pl-0 hover:bg-transparent"
-              >
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Events
-              </Button>
-            </Link>
+            <Button
+              variant="ghost"
+              className="text-zinc-400 hover:text-primary pl-0 hover:bg-transparent mb-6"
+              onClick={() => navigate(-1)}
+            >
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Events
+            </Button>
 
             {/* Title Section */}
             <div>

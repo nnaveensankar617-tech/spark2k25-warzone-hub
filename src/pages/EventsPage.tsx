@@ -1,5 +1,6 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Search, X, Calendar, DollarSign, Trophy, Users } from "lucide-react";
+import { useNavigate, useLocation, useSearchParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -11,6 +12,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { motion } from "framer-motion";
 
 
 import { SearchBar } from "@/components/SearchBar";
@@ -27,6 +29,19 @@ export default function EventsPage() {
   /* Update initial state to match sort values */
   const [sortBy, setSortBy] = useState("date-desc");
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const category = searchParams.get("category");
+    if (category) {
+      // Decode URI component just in case, though searchParams usually handles it
+      setActiveFilter(decodeURIComponent(category));
+    } else {
+      // Optional: Reset to All Events if no param, or leave as is to allow state persistence within session if desired.
+      // For this request, reflecting the link click is priority.
+      setActiveFilter("All Events");
+    }
+  }, [searchParams]);
 
   const filteredEvents = useMemo(() => {
     let filtered = [...events];
@@ -143,35 +158,8 @@ export default function EventsPage() {
 
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 px-4">
-        <div className="container mx-auto max-w-6xl relative z-10">
-          {/* Title */}
-          <div className="text-center mb-12 animate-slide-up">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 font-orbitron tracking-wider">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]">SPARK</span>{" "}
-              <span className="text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">2026</span>
-            </h1>
-            <div className="inline-block relative">
-              <p className="text-xl md:text-2xl text-zinc-300 font-exo mb-2 tracking-wide">
-                Where Passion Meets Power
-              </p>
-              <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
-            </div>
-            {/* Animated Marquee */}
-            <div className="mt-8 relative overflow-hidden h-10 w-full max-w-2xl mx-auto">
-              <div className="absolute whitespace-nowrap animate-marquee flex gap-8 text-primary font-bold font-orbitron tracking-widest text-lg drop-shadow-[0_0_10px_rgba(var(--primary),0.8)]">
-                <span>REGISTRATIONS ARE OPEN</span>
-                <span>•</span>
-                <span>REGISTRATIONS ARE OPEN</span>
-                <span>•</span>
-                <span>REGISTRATIONS ARE OPEN</span>
-                <span>•</span>
-                <span>REGISTRATIONS ARE OPEN</span>
-                <span>•</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <section className="relative pt-5 pb-16 px-4">
+
       </section>
 
       <style>{`
@@ -233,11 +221,24 @@ export default function EventsPage() {
               </div>
 
               {filteredEvents.length > 0 ? (
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
+                <motion.div
+                  className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4"
+                  variants={{
+                    hidden: { opacity: 0 },
+                    show: {
+                      opacity: 1,
+                      transition: {
+                        staggerChildren: 0.1
+                      }
+                    }
+                  }}
+                  initial="hidden"
+                  animate="show"
+                >
                   {filteredEvents.map((event) => (
                     <EventCard key={event.id} event={event} />
                   ))}
-                </div>
+                </motion.div>
               ) : (
                 <div className="text-center py-20 border border-dashed border-white/10 rounded-xl bg-white/5">
                   <p className="text-zinc-400 text-lg font-orbitron">No events found in this sector</p>

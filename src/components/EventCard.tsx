@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Event } from "@/components/data/events";
 import { Card } from "@/components/event-ui/card";
+import { motion } from "framer-motion";
 
 interface EventCardProps {
   event: Event;
@@ -23,29 +24,37 @@ export function EventCard({ event }: EventCardProps) {
           categoryStyle.includes("pink") ? "rgba(236,72,153,0.4)" : "rgba(34,211,238,0.4)";
 
   return (
-    <Link to={`/event/${event.id}`} className="group block h-full">
-      <Card className="relative overflow-hidden border border-white/10 bg-black/40 h-full aspect-square transition-all duration-500 group-hover:border-primary/50 group-hover:shadow-[0_0_30px_var(--glow-color)]"
-        style={{ "--glow-color": glowColor } as React.CSSProperties}>
-        {/* Image Container */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10 opacity-60 group-hover:opacity-80 transition-opacity" />
-          <img
-            src={event.image || "/placeholder.svg"}
-            alt={event.title}
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
-          />
-        </div>
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, scale: 0.8, y: 20 },
+        show: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", stiffness: 50, damping: 10 } }
+      }}
+      className="h-full"
+    >
+      <Link to={`/event/${event.id}`} className="group block h-full">
+        <Card className="relative overflow-hidden border border-white/10 bg-black/40 h-full aspect-square transition-all duration-500 group-hover:border-primary/50 group-hover:shadow-[0_0_30px_var(--glow-color)]"
+          style={{ "--glow-color": glowColor } as React.CSSProperties}>
+          {/* Image Container */}
+          <div className="absolute inset-0 w-full h-full overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10 opacity-60 group-hover:opacity-80 transition-opacity" />
+            <img
+              src={event.image || "/placeholder.svg"}
+              alt={event.title}
+              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
+            />
+          </div>
 
-        {/* Minimal Content - Title Only */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 z-20 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-          <h3 className="text-xl font-bold text-white font-orbitron text-center drop-shadow-md group-hover:text-primary transition-colors">
-            {event.title}
-          </h3>
-        </div>
+          {/* Minimal Content - Title Only */}
+          <div className="absolute bottom-0 left-0 right-0 p-4 z-20 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            <h3 className="text-xl font-bold text-white font-orbitron text-center drop-shadow-md group-hover:text-primary transition-colors">
+              {event.title}
+            </h3>
+          </div>
 
-        {/* Hover Highlight */}
-        <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/50 rounded-lg pointer-events-none transition-colors duration-500" />
-      </Card>
-    </Link>
+          {/* Hover Highlight */}
+          <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/50 rounded-lg pointer-events-none transition-colors duration-500" />
+        </Card>
+      </Link>
+    </motion.div>
   );
 }

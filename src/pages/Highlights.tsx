@@ -7,6 +7,7 @@ import { HeroParallax } from "@/components/ui/hero-parallax";
 import { BeamsBackground } from "@/components/ui/beams";
 import CircularTestimonials from "@/components/ui/bts";
 import { motion } from "motion/react";
+import Footer from "@/components/Footer";
 
 
 import { useLocation } from "react-router-dom";
@@ -70,6 +71,7 @@ import { SmoothScroll } from "@/components/ui/smooth-scroll";
 const HighlightsPage: React.FC = () => {
   const location = useLocation();
   return (
+    <>
     <SmoothScroll>
       <>
         <div className="fixed top-0 left-0 right-0 z-[1000]">
@@ -185,11 +187,14 @@ const HighlightsPage: React.FC = () => {
             </motion.section>
           </div>
         </motion.div>
+        
+
       </>
+      
     </SmoothScroll>
+    <Footer />
 
-
-
+</>
 
 
 
