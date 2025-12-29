@@ -79,7 +79,7 @@ export interface Event {
 export const events: Event[] = [
   {
     id: "1",
-    title: "Pitch and Talk",
+    title: "Pick and Talk",
     description:
       "A technical speaking challenge that tests spontaneity, clarity of thought, and technical awareness.",
     date: "6th March 2026",
@@ -88,7 +88,7 @@ export const events: Event[] = [
     venue: "Seminar Hall / Dept. Venues",
     categories: ["Technical Events", "Pitch and Talk"],
     department: "",
-    image: "/event-images/sample.png",
+    image: "/event-images/PIC AND TALK.jpg",
     registrationOpen: true,
     teamSize: "Individual",
     rules: [
@@ -112,7 +112,7 @@ export const events: Event[] = [
     venue: "Seminar Hall / Dept. Venues",
     categories: ["Technical Events"],
     department: "MECH",
-    image: "/event-images/sample.png",
+    image: "/event-images/3D CAD MODELLING.jpg",
     registrationOpen: true,
     teamSize: "2 members",
     rules: [
@@ -135,7 +135,7 @@ export const events: Event[] = [
     venue: "Seminar Hall / Dept. Venues",
     categories: ["Technical Events"],
     department: "",
-    image: "/event-images/sample.png",
+    image: "/event-images/ALGORITHMTRESSUREHUNT.jpg",
     registrationOpen: true,
     teamSize: "2–3 members",
     rules: [
@@ -158,7 +158,7 @@ export const events: Event[] = [
     venue: "Seminar Hall / Dept. Venues",
     categories: ["Technical Events"],
     department: "CSM",
-    image: "/event-images/sample.png",
+    image: "/event-images/AI AGENT BUILDING.jpg",
     registrationOpen: true,
     teamSize: "Individual or up to 3 members",
     rules: [
@@ -181,7 +181,7 @@ export const events: Event[] = [
     venue: "Seminar Hall / Dept. Venues",
     categories: ["Technical Events"],
     department: "CSD",
-    image: "/event-images/sample.png",
+    image: "/event-images/ADZAP.jpg",
     registrationOpen: true,
     teamSize: "2–4 members",
     rules: [
@@ -203,7 +203,7 @@ export const events: Event[] = [
     venue: "Seminar Hall / Dept. Venues",
     categories: ["Technical Events"],
     department: "",
-    image: "/event-images/sample.png",
+    image: "/event-images/MOBILE APP & IPT INTEGRATION.jpg",
     registrationOpen: true,
     teamSize: "2–3 members",
     rules: [
@@ -225,7 +225,7 @@ export const events: Event[] = [
     venue: "Seminar Hall / Dept. Venues",
     categories: ["Technical Events"],
     department: "CIVIL",
-    image: "/event-images/sample.png",
+    image: "/event-images/BRIDGE BUILDING.jpg",
     registrationOpen: true,
     teamSize: "2–4 members",
     rules: [
@@ -247,7 +247,7 @@ export const events: Event[] = [
     venue: "Electronics Lab",
     categories: ["Technical Events"],
     department: "",
-    image: "/event-images/sample.png",
+    image: "/event-images/LOGIC GATE MASTER.jpg",
     registrationOpen: true,
     teamSize: "Individual",
     rules: [
@@ -674,7 +674,7 @@ export const events: Event[] = [
     venue: "Department Venues",
     categories: ["Technical Events"],
     department: "",
-    image: "/event-images/sample.png",
+    image: "/event-images/TECH SHORT.jpg",
     registrationOpen: true,
     teamSize: "Individual",
     rules: [
@@ -720,7 +720,7 @@ export const events: Event[] = [
     venue: "Department Venues",
     categories: ["Technical Events"],
     department: "",
-    image: "/event-images/sample.png",
+    image: "/event-images/CODE CRIME SECENE.jpg",
     registrationOpen: true,
     teamSize: "Individual or 2 per team",
     rules: [
@@ -766,7 +766,7 @@ export const events: Event[] = [
     venue: "Department Venues",
     categories: ["Technical Events"],
     department: "",
-    image: "/event-images/sample.png",
+    image: "/event-images/PIC PROMPT.jpg",
     registrationOpen: true,
     teamSize: "Individual",
     rules: [
@@ -789,7 +789,7 @@ export const events: Event[] = [
     venue: "Department Venues",
     categories: ["Technical Events"],
     department: "",
-    image: "/event-images/sample.png",
+    image: "/event-images/MEMORY MELTDOWN.jpg",
     registrationOpen: true,
     teamSize: "Individual",
     rules: [
@@ -813,7 +813,7 @@ export const events: Event[] = [
     venue: "Department Venues",
     categories: ["Technical Events"],
     department: "",
-    image: "/event-images/sample.png",
+    image: "/event-images/TECH DUMB SHARADS.jpg",
     registrationOpen: true,
     teamSize: "2–4 members",
     rules: [
@@ -836,7 +836,7 @@ export const events: Event[] = [
     venue: "Department Venues",
     categories: ["Technical Events"],
     department: "",
-    image: "/event-images/sample.png",
+    image: "/event-images/UI UX DESIGN SPRINT.jpg",
     registrationOpen: true,
     teamSize: "Individual or 2 members",
     rules: [
